@@ -6,11 +6,16 @@
     "license": "BSD-4-Clause",
     "authors": [
         {
+            "name": "Microsoft",
+            "homepage": "https://code.msdn.microsoft.com/Bing-Ads-API-Version-9-in-fb27761f"
+        },
+        {
             "name": "Maxim",
             "email": "maxlen@inbox.ru"
         }
     ],
     "autoload": {
+        "classmap": ["PHP/bingads"],
         "psr-4": {
             "\\maxlen\\bingadsapi\\": ""
         }
