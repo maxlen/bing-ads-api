@@ -20,8 +20,12 @@ include 'bingads\CampaignManagementClasses.php';
 include 'bingads\ClientProxy.php';
 
 // Specify the BingAds\CampaignManagement objects that will be used.
+use BingAds\CampaignManagement\AddCampaignsRequest;
+use BingAds\CampaignManagement\Campaign;
+use BingAds\CampaignManagement\BudgetLimitType;
 use BingAds\CampaignManagement\AddAdExtensionsRequest;
 use BingAds\CampaignManagement\AdExtension;
+use BingAds\CampaignManagement\AppAdExtension;
 use BingAds\CampaignManagement\CallAdExtension;
 use BingAds\CampaignManagement\LocationAdExtension;
 use BingAds\CampaignManagement\SiteLinksAdExtension;
@@ -59,8 +63,6 @@ $Password = "<PasswordGoesHere>";
 $DeveloperToken = "<DeveloperTokenGoesHere>";
 $CustomerId = <CustomerIdGoesHere>;
 $AccountId = <AccountIdGoesHere>;
-$CampaignId = <CampaignIdGoesHere>;
-
 
 // Campaign Management WSDL
 
@@ -72,10 +74,38 @@ $ids = null;
 try
 {
     $proxy = ClientProxy::ConstructWithAccountAndCustomerId($wsdl, $UserName, $Password, $DeveloperToken, $AccountId, $CustomerId, null);
+    
+    // Specify one or more campaigns.
+    
+    $campaigns = array();
+   
+    $campaign = new Campaign();
+    $campaign->Name = "Winter Clothing " . $_SERVER['REQUEST_TIME'];
+    $campaign->Description = "Winter clothing line.";
+    $campaign->BudgetType = BudgetLimitType::MonthlyBudgetSpendUntilDepleted;
+    $campaign->MonthlyBudget = 1000.00;
+    $campaign->TimeZone = "PacificTimeUSCanadaTijuana";
+    $campaign->DaylightSaving = true;
+
+    $campaigns[] = $campaign;
+
+    $campaignIds = AddCampaigns($proxy, $AccountId, $campaigns);
 	
     // Specify the extensions.
     
     $adExtensions = array();
+
+    // Specify an app extension.
+    
+    $extension = new AppAdExtension();
+    $extension->AppPlatform = "Windows";
+    $extension->AppStoreId="AppStoreIdGoesHere";
+    $extension->DisplayText= "Contoso";
+    $extension->DestinationUrl="DestinationUrlGoesHere";
+
+    
+    $encodedExtension = new SoapVar($extension, SOAP_ENC_OBJECT, 'AppAdExtension', $proxy->GetNamespace());
+    $adExtensions[] = $encodedExtension;
     
     // Specify a call extension.
     
@@ -143,7 +173,7 @@ try
     {
     	$adExtensionIdToEntityIdAssociations[$i] = new AdExtensionIdToEntityIdAssociation();
     	$adExtensionIdToEntityIdAssociations[$i]->AdExtensionId = $adExtensionIdentities->AdExtensionIdentity[$i]->Id;;
-    	$adExtensionIdToEntityIdAssociations[$i]->EntityId = $CampaignId;
+    	$adExtensionIdToEntityIdAssociations[$i]->EntityId = $campaignIds[0];
     	    	
     	$adExtensionIds[$i] = $adExtensionIdentities->AdExtensionIdentity[$i]->Id;
     };
@@ -167,6 +197,7 @@ try
     	);
     
     $adExtensionsTypeFilter = array(
+        AdExtensionsTypeFilter::AppAdExtension,
     	AdExtensionsTypeFilter::CallAdExtension,
     	AdExtensionsTypeFilter::LocationAdExtension,
     	AdExtensionsTypeFilter::SiteLinksAdExtension
@@ -194,7 +225,15 @@ try
     		print("Ad extension ID: " . $extension->Id . "\n");
     		print("Ad extension Type: " . $extension->Type . "\n");
     
-    		if ($extension->Type === "CallAdExtension")
+                if ($extension->Type === "AppAdExtension")
+    		{
+    			print("AppPlatform: " . $extension->AppPlatform . "\n");
+    			print("AppStoreId: " . $extension->AppStoreId . "\n");
+    			print("DisplayText: " . $extension->DisplayText . "\n");
+    			print("DestinationUrl: " . $extension->DestinationUrl . "\n");
+    			print("\n");
+    		}    		
+                else if ($extension->Type === "CallAdExtension")
     		{
     			print("Phone number: " . $extension->PhoneNumber . "\n");
     			print("Country: " . $extension->CountryCode . "\n");
@@ -416,6 +455,19 @@ catch (Exception $e)
         print $e->getCode()." ".$e->getMessage()."\n\n";
         print $e->getTraceAsString()."\n\n";
     }
+}
+
+// Adds one or more campaigns to the specified account.
+
+function AddCampaigns($proxy, $accountId, $campaigns)
+{
+    // Set the request information.
+
+    $request = new AddCampaignsRequest();
+    $request->AccountId = $accountId;
+    $request->Campaigns = $campaigns;
+    
+    return $proxy->GetService()->AddCampaigns($request)->CampaignIds->long;
 }
 
 // Adds one or more ad extensions to the account's ad extension library.

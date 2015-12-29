@@ -96,10 +96,9 @@ ini_set("soap.wsdl_cache_ttl", "0");
 
 $UserName = "<UserNameGoesHere>";
 $Password = "<PasswordGoesHere>";
-$DeveloperToken = "DeveloperTokenGoesHere>"; 
+$DeveloperToken = "<DeveloperTokenGoesHere>";
 $CustomerId = <CustomerIdGoesHere>;
 $AccountId = <AccountIdGoesHere>;
-
 
 // Campaign Management WSDL
 
@@ -114,7 +113,7 @@ try
     $campaigns = array();
    
     $campaign = new Campaign();
-    $campaign->Name = "Winter Clothing";
+    $campaign->Name = "Winter Clothing " . $_SERVER['REQUEST_TIME'];
     $campaign->Description = "Winter clothing line.";
     $campaign->BudgetType = BudgetLimitType::MonthlyBudgetSpendUntilDepleted;
     $campaign->MonthlyBudget = 1000.00;
@@ -270,7 +269,6 @@ try
     $deviceOSTargetBid = new DeviceOSTargetBid();
     $deviceOSTargetBid->BidAdjustment = 20;
     $deviceOSTargetBid->DeviceName = "Tablets";
-    $deviceOSTargetBid->OSNames = array("Other");
     $deviceOSTarget->Bids = array($deviceOSTargetBid);
     $target2->DeviceOS = $deviceOSTarget;
 
@@ -723,14 +721,6 @@ function PrintTarget($target)
         {
             printf("\tBidAdjustment: %d\n", $bid->BidAdjustment);
             printf("\tDeviceName: %s\n", $bid->DeviceName);
-            if (!is_null($bid->OSNames))
-            {
-                print "\tOSNames:";
-                foreach ($bid->OSNames->string as $osname)
-                {
-                    printf("\t\t%s\n", $osname);
-                }
-            }
             print "\n";
         }
     }
@@ -852,14 +842,6 @@ function PrintTarget2($target)
         {
             printf("\tBidAdjustment: %d\n", $bid->BidAdjustment);
             printf("\tDeviceName: %s\n", $bid->DeviceName);
-            if (!is_null($bid->OSNames))
-            {
-                print "\tOSNames:";
-                foreach ($bid->OSNames->string as $osname)
-                {
-                    printf("\t\t%s\n", $osname);
-                }
-            }
             print "\n";
         }
     }

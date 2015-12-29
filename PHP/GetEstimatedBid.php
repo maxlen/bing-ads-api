@@ -42,13 +42,12 @@ ini_set("soap.wsdl_cache_ttl", "0");
 $UserName = "<UserNameGoesHere>";
 $Password = "<PasswordGoesHere>";
 $DeveloperToken = "<DeveloperTokenGoesHere>";
+$CustomerId = <CustomerIdGoesHere>;
 $AccountId = <AccountIdGoesHere>;
-
 
 // Ad Intelligence WSDL
 
 $wsdl = "https://api.bingads.microsoft.com/Api/Advertiser/AdIntelligence/v9/AdIntelligenceService.svc?singleWsdl";
-
 
 try
 {

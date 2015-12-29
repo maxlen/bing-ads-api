@@ -50,8 +50,8 @@ ini_set("soap.wsdl_cache_ttl", "0");
 $UserName = "<UserNameGoesHere>";
 $Password = "<PasswordGoesHere>";
 $DeveloperToken = "<DeveloperTokenGoesHere>";
+$CustomerId = <CustomerIdGoesHere>;
 $AccountId = <AccountIdGoesHere>;
-$CampaignId = <CampaignIdGoesHere>;
 
 
 // Reporting WSDL.
@@ -83,69 +83,7 @@ try
     // Build a keyword performance report request, including Format, ReportName, Aggregation,
     // Scope, Time, Filter, and Columns.
     
-    $report = new KeywordPerformanceReportRequest();
-    
-    $report->Format = ReportFormat::Tsv;
-    $report->ReportName = 'My Keyword Performance Report';
-    $report->ReturnOnlyCompleteData = false;
-    $report->Aggregation = ReportAggregation::Daily;
-    
-    $report->Scope = new AccountThroughAdGroupReportScope();
-    $report->Scope->AccountIds = null;
-    $report->Scope->AdGroups = null;
-    $report->Scope->Campaigns = array ();
-    $campaignReportScope = new CampaignReportScope();
-    $campaignReportScope->CampaignId = $CampaignId;
-    $campaignReportScope->AccountId = $AccountId;
-    $report->Scope->Campaigns[] = $campaignReportScope;
-    
-    $report->Time = new ReportTime();
-    $report->Time->PredefinedTime = ReportTimePeriod::Yesterday;
-    
-    //  You may either use a custom date range or predefined time.
-    //    $report->Time->CustomDateRangeStart = new Date();
-    //    $report->Time->CustomDateRangeStart->Month = 2;
-    //    $report->Time->CustomDateRangeStart->Day = 1;
-    //    $report->Time->CustomDateRangeStart->Year = 2012;
-    //    $report->Time->CustomDateRangeEnd = new Date();
-    //    $report->Time->CustomDateRangeEnd->Month = 2;
-    //    $report->Time->CustomDateRangeEnd->Day = 15;
-    //    $report->Time->CustomDateRangeEnd->Year = 2012;
-    
-    $report->Filter = new KeywordPerformanceReportFilter();
-    $report->Filter->DeviceType = array (
-    		DeviceTypeReportFilter::Computer,
-    		DeviceTypeReportFilter::SmartPhone
-    );
-    
-    $report->Columns = array (
-    		KeywordPerformanceReportColumn::TimePeriod,
-    		KeywordPerformanceReportColumn::AccountId,
-    		KeywordPerformanceReportColumn::CampaignId,
-    		KeywordPerformanceReportColumn::Keyword,
-    		KeywordPerformanceReportColumn::KeywordId,
-    		KeywordPerformanceReportColumn::DeviceType,
-    		KeywordPerformanceReportColumn::BidMatchType,
-    		KeywordPerformanceReportColumn::Clicks,
-    		KeywordPerformanceReportColumn::Impressions,
-    		KeywordPerformanceReportColumn::Ctr,
-    		KeywordPerformanceReportColumn::AverageCpc,
-    		KeywordPerformanceReportColumn::Spend,
-    		KeywordPerformanceReportColumn::QualityScore
-    );
-    
-    // You may optionally sort by any KeywordPerformanceReportColumn, and optionally
-    // specify the maximum number of rows to return in the sorted report.
-    
-    $report->Sort = array ();
-    $keywordPerformanceReportSort = new KeywordPerformanceReportSort();
-    $keywordPerformanceReportSort->SortColumn = KeywordPerformanceReportColumn::Clicks;
-    $keywordPerformanceReportSort->SortOrder = SortOrder::Ascending;
-    $report->Sort[] = $keywordPerformanceReportSort;
-    
-    $report->MaxRows = 10;
-    
-    $encodedReport = new SoapVar($report, SOAP_ENC_OBJECT, 'KeywordPerformanceReportRequest', $proxy->GetNamespace());
+    $report = GetKeywordPerformanceReportRequest($proxy, $AccountId);
     
     // SubmitGenerateReport helper method calls the corresponding Bing Ads service operation
     // to request the report identifier. The identifier is used to check report generation status
@@ -153,7 +91,7 @@ try
     
     $reportRequestId = SubmitGenerateReport(
     		$proxy, 
-    		$encodedReport
+    		$report
     		);
     
     printf("Report Request ID: %s\n\n", $reportRequestId);
@@ -389,5 +327,70 @@ function DownloadFile($reportDownloadUrl, $downloadPath)
     fclose($writer);
 }
 
+function GetKeywordPerformanceReportRequest($proxy, $AccountId) 
+{
+    $report = new KeywordPerformanceReportRequest();
+    
+    $report->Format = ReportFormat::Tsv;
+    $report->ReportName = 'My Keyword Performance Report';
+    $report->ReturnOnlyCompleteData = false;
+    $report->Aggregation = ReportAggregation::Daily;
+    
+    $report->Scope = new AccountThroughAdGroupReportScope();
+    $report->Scope->AccountIds = array();
+    $report->Scope->AccountIds[] = $AccountId;
+    $report->Scope->AdGroups = null;
+    $report->Scope->Campaigns = null;
+    
+    $report->Time = new ReportTime();
+    $report->Time->PredefinedTime = ReportTimePeriod::Yesterday;
+    
+    //  You may either use a custom date range or predefined time.
+    //    $report->Time->CustomDateRangeStart = new Date();
+    //    $report->Time->CustomDateRangeStart->Month = 9;
+    //    $report->Time->CustomDateRangeStart->Day = 1;
+    //    $report->Time->CustomDateRangeStart->Year = 2015;
+    //    $report->Time->CustomDateRangeEnd = new Date();
+    //    $report->Time->CustomDateRangeEnd->Month = 10;
+    //    $report->Time->CustomDateRangeEnd->Day = 31;
+    //    $report->Time->CustomDateRangeEnd->Year = 2015;
+    
+    $report->Filter = new KeywordPerformanceReportFilter();
+    $report->Filter->DeviceType = array (
+    		DeviceTypeReportFilter::Computer,
+    		DeviceTypeReportFilter::SmartPhone
+    );
+    
+    $report->Columns = array (
+    		KeywordPerformanceReportColumn::TimePeriod,
+    		KeywordPerformanceReportColumn::AccountId,
+    		KeywordPerformanceReportColumn::CampaignId,
+    		KeywordPerformanceReportColumn::Keyword,
+    		KeywordPerformanceReportColumn::KeywordId,
+    		KeywordPerformanceReportColumn::DeviceType,
+    		KeywordPerformanceReportColumn::BidMatchType,
+    		KeywordPerformanceReportColumn::Clicks,
+    		KeywordPerformanceReportColumn::Impressions,
+    		KeywordPerformanceReportColumn::Ctr,
+    		KeywordPerformanceReportColumn::AverageCpc,
+    		KeywordPerformanceReportColumn::Spend,
+    		KeywordPerformanceReportColumn::QualityScore
+    );
+    
+    // You may optionally sort by any KeywordPerformanceReportColumn, and optionally
+    // specify the maximum number of rows to return in the sorted report.
+    
+    $report->Sort = array ();
+    $keywordPerformanceReportSort = new KeywordPerformanceReportSort();
+    $keywordPerformanceReportSort->SortColumn = KeywordPerformanceReportColumn::Clicks;
+    $keywordPerformanceReportSort->SortOrder = SortOrder::Ascending;
+    $report->Sort[] = $keywordPerformanceReportSort;
+    
+    $report->MaxRows = 10;
+    
+    $encodedReport = new SoapVar($report, SOAP_ENC_OBJECT, 'KeywordPerformanceReportRequest', $proxy->GetNamespace());
+    
+    return $encodedReport;
+}
  
 ?>

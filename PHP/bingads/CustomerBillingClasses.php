@@ -1,5 +1,5 @@
 <?php
-// Generated on 8/11/2015 7:46:21 AM
+// Generated on 11/16/2015 6:46:27 AM
 
 namespace BingAds\CustomerBilling
 {
@@ -519,10 +519,6 @@ namespace BingAds\CustomerBilling
      */
     final class AddInsertionOrderRequest
     {
-        /**
-         * An insertion order to add to the account specified in the InsertionOrder object.
-         * @var InsertionOrder
-         */
         public $InsertionOrder;
     }
 
@@ -534,16 +530,7 @@ namespace BingAds\CustomerBilling
      */
     final class AddInsertionOrderResponse
     {
-        /**
-         * A long value that represents the identifier for the insertion order that was added.
-         * @var integer
-         */
         public $InsertionOrderId;
-
-        /**
-         * Identifies the server time in UTC when the insertion order was added.
-         * @var \DateTime
-         */
         public $CreateTime;
     }
 
@@ -567,10 +554,6 @@ namespace BingAds\CustomerBilling
      */
     final class GetAccountMonthlySpendResponse
     {
-        /**
-         * The amount spent by the account in the specified period.
-         * @var double
-         */
         public $Amount;
     }
 
@@ -583,16 +566,7 @@ namespace BingAds\CustomerBilling
      */
     final class GetBillingDocumentsRequest
     {
-        /**
-         * A list of identifiers of the billing documents to get.
-         * @var integer[]
-         */
         public $DocumentIds;
-
-        /**
-         * The format to use to generate the billing document.
-         * @var DataType
-         */
         public $Type;
     }
 
@@ -605,10 +579,6 @@ namespace BingAds\CustomerBilling
      */
     final class GetBillingDocumentsResponse
     {
-        /**
-         * The list of billing documents that were retrieved.
-         * @var BillingDocument[]
-         */
         public $BillingDocuments;
     }
 
@@ -620,22 +590,8 @@ namespace BingAds\CustomerBilling
      */
     final class GetBillingDocumentsInfoRequest
     {
-        /**
-         * A list of identifiers of the accounts whose billing document information you want to get.
-         * @var integer[]
-         */
         public $AccountIds;
-
-        /**
-         * The start date to use for specifying the billing documents to get.
-         * @var \DateTime
-         */
         public $StartDate;
-
-        /**
-         * The end date to use for specifying the billing documents to get.
-         * @var \DateTime
-         */
         public $EndDate;
     }
 
@@ -648,10 +604,6 @@ namespace BingAds\CustomerBilling
      */
     final class GetBillingDocumentsInfoResponse
     {
-        /**
-         * The list of billing document information objects that were retrieved.
-         * @var BillingDocumentInfo[]
-         */
         public $BillingDocumentsInfo;
     }
 
@@ -674,16 +626,7 @@ namespace BingAds\CustomerBilling
      */
     final class GetInsertionOrdersByAccountRequest
     {
-        /**
-         * The identifier of the account that contains the insertion orders to get.
-         * @var integer
-         */
         public $AccountId;
-
-        /**
-         * A list of identifiers of the insertion orders to get.
-         * @var integer[]
-         */
         public $InsertionOrderIds;
     }
 
@@ -696,10 +639,6 @@ namespace BingAds\CustomerBilling
      */
     final class GetInsertionOrdersByAccountResponse
     {
-        /**
-         * A list of insertion orders.
-         * @var InsertionOrder[]
-         */
         public $InsertionOrders;
     }
 
@@ -724,22 +663,8 @@ namespace BingAds\CustomerBilling
      */
     final class SearchInsertionOrdersRequest
     {
-        /**
-         * Determines the request conditions.
-         * @var Predicate[]
-         */
         public $Predicates;
-
-        /**
-         * Determines the order of results by the specified property of an account.
-         * @var OrderBy[]
-         */
         public $Ordering;
-
-        /**
-         * Determines the index and size of results per page.
-         * @var Paging
-         */
         public $PageInfo;
     }
 
@@ -752,10 +677,6 @@ namespace BingAds\CustomerBilling
      */
     final class SearchInsertionOrdersResponse
     {
-        /**
-         * A list of insertion orders that meet the specified criteria.
-         * @var InsertionOrder[]
-         */
         public $InsertionOrders;
     }
 
@@ -768,10 +689,6 @@ namespace BingAds\CustomerBilling
      */
     final class UpdateInsertionOrderRequest
     {
-        /**
-         * An insertion order to update within the account specified in the InsertionOrder object.
-         * @var InsertionOrder
-         */
         public $InsertionOrder;
     }
 
@@ -783,10 +700,6 @@ namespace BingAds\CustomerBilling
      */
     final class UpdateInsertionOrderResponse
     {
-        /**
-         * Identifies the server time in UTC when the insertion order was last modified.
-         * @var \DateTime
-         */
         public $LastModifiedTime;
     }
 }

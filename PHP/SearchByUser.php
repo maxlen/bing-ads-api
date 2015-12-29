@@ -17,7 +17,11 @@
 // Include the Bing Ads namespaced class file available
 // for download at http://go.microsoft.com/fwlink/?LinkId=322147
 include 'bingads\CustomerManagementClasses.php';
+include 'bingads\CampaignManagementClasses.php';
 include 'bingads\ClientProxy.php';
+
+// Specify the BingAds\CampaignManagement objects that will be used.
+use BingAds\CampaignManagement\GetCampaignsByAccountIdRequest;
 
 // Specify the BingAds\CustomerManagement objects that will be used.
 use BingAds\CustomerManagement\GetUserRequest;
@@ -46,24 +50,26 @@ ini_set("soap.wsdl_cache_ttl", "0");
 
 $UserName = "<UserNameGoesHere>";
 $Password = "<PasswordGoesHere>";
-$DeveloperToken = "DeveloperTokenGoesHere>"; 
+$DeveloperToken = "<DeveloperTokenGoesHere>";
 
+$GLOBALS['proxy'] = null;
 
-// Customer Management WSDL
+$GLOBALS['customerWsdl'] = "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?singleWsdl";
+$GLOBALS['customerProxy'] = null; 
 
-$wsdl = "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v9/CustomerManagementService.svc?singleWsdl";
-
+$GLOBALS['campaignWsdl'] = "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/CampaignManagementService.svc?singleWsdl";
+$GLOBALS['campaignProxy'] = null; 
 
 try
 {
-    $proxy = ClientProxy::ConstructWithCredentials($wsdl, $UserName, $Password, $DeveloperToken, null);
+    $GLOBALS['customerProxy'] = ClientProxy::ConstructWithCredentials($GLOBALS['customerWsdl'], $GLOBALS['UserName'], $GLOBALS['Password'], $GLOBALS['DeveloperToken'], null);
     
     // Get the User object for the current authenticated user, by calling GetUser
     // with a null UserId.
     // Later in this sample we will search for all customers and accounts
     // that the user may access.
 
-    $user = GetUser($proxy, null);
+    $user = GetUser(null);
 
     PrintUser($user);
 
@@ -99,23 +105,22 @@ try
     // Search for customers that match the specified criteria.
 
     $customers = SearchCustomers(
-        $proxy,
         $dateRange,
         array($ordering),
         $pageInfo,
         array($predicate) );
 
     printf("Customer search results by UserName (%s):\n\n", $user->UserName);
-    PrintCustomers($proxy, $customers);
+    PrintCustomers($customers);
 }
 catch (SoapFault $e)
 {
   // Output the last request/response.
 
   print "\nLast SOAP request/response:\n";
-  print $proxy->GetWsdl() . "\n";
-  print $proxy->GetService()->__getLastRequest()."\n";
-  print $proxy->GetService()->__getLastResponse()."\n";
+  print $GLOBALS['proxy']->GetWsdl() . "\n";
+  print $GLOBALS['proxy']->GetService()->__getLastRequest()."\n";
+  print $GLOBALS['proxy']->GetService()->__getLastResponse()."\n";
 
     // Customer Management service operations can throw AdApiFaultDetail.
     if (isset($e->detail->AdApiFaultDetail))
@@ -192,27 +197,26 @@ catch (Exception $e)
 
 // Gets a User object by the specified UserId.
 
-function GetUser($proxy, $userId)
+function GetUser($userId)
 {   
-    // Set the request information.  
+    $GLOBALS['proxy'] = $GLOBALS['customerProxy']; 
 
     $request = new GetUserRequest();
     $request->UserId = $userId;
 
-    return $proxy->GetService()->GetUser($request)->User;
+    return $GLOBALS['customerProxy']->GetService()->GetUser($request)->User;
 }
 
 // Gets the advertising customers that the user
 // has access to and that match the filter criteria.
 
 function SearchCustomers(
-        $proxy,
         $dateRange,
         $ordering,
         $pageInfo,
         $predicates )
 {
-    // Set the request information.
+    $GLOBALS['proxy'] = $GLOBALS['customerProxy']; 
   
     $request = new SearchCustomersRequest();
     $request->ApplicationScope = ApplicationType::Advertiser;
@@ -221,7 +225,7 @@ function SearchCustomers(
     $request->PageInfo = $pageInfo;
     $request->Predicates = $predicates;
 
-    return $proxy->GetService()->SearchCustomers($request)->Customers;
+    return $GLOBALS['customerProxy']->GetService()->SearchCustomers($request)->Customers;
 }
 
 
@@ -229,15 +233,28 @@ function SearchCustomers(
 // are within the specified customer identifier, and not managed
 // through an agency or reseller.
 
-function GetAccountsInfo($proxy, $customerId)
+function GetAccountsInfo($customerId)
 {
-    // Set the request information.
+    $GLOBALS['proxy'] = $GLOBALS['customerProxy'];
 
     $request = new GetAccountsInfoRequest();
     $request->CustomerId = $customerId;
     $request->OnlyParentAccounts = true;
 
-    return $proxy->GetService()->GetAccountsInfo($request)->AccountsInfo;
+    return $GLOBALS['customerProxy']->GetService()->GetAccountsInfo($request)->AccountsInfo;
+}
+
+// Returns a list of campaigns for the specified account.
+
+function GetCampaignsByAccountId($customerId, $accountId)
+{
+    $GLOBALS['campaignProxy'] = ClientProxy::ConstructWithAccountAndCustomerId($GLOBALS['campaignWsdl'], $GLOBALS['UserName'], $GLOBALS['Password'], $GLOBALS['DeveloperToken'], $accountId, $customerId, null);
+    $GLOBALS['proxy'] = $GLOBALS['campaignProxy'];
+
+    $request = new GetCampaignsByAccountIdRequest();
+    $request->AccountId = $accountId;
+
+    return $GLOBALS['campaignProxy']->GetService()->GetCampaignsByAccountId($request)->Campaigns;
 }
 
 
@@ -276,14 +293,14 @@ function PrintUser($user)
 
 // Prints a list of customers.
 
-function PrintCustomers($proxy, $customers)
+function PrintCustomers($customers)
 {
     foreach ($customers->Customer as $cust)
     {
         if (!empty($cust))
         {
             printf("CustomerId: %d\n", $cust->Id);
-            $aInfos = GetAccountsInfo($proxy, $cust->Id);
+            $aInfos = GetAccountsInfo($cust->Id);
 
             // Print a list of all accounts managed by the customer
             foreach ($aInfos->AccountInfo as $aInfo)
@@ -291,6 +308,11 @@ function PrintCustomers($proxy, $customers)
                 if (!empty($aInfo))
                 {
                     printf("CustomerAccountId: %d\n", $aInfo->Id);
+                    $campaigns = GetCampaignsByAccountId($cust->Id, $aInfo->Id);
+                    foreach ($campaigns->Campaign as $campaign)
+                    {
+                        printf("CampaignId: %d\n", $campaign->Id);
+                    }
                 }
             }
         }
