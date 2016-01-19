@@ -50,9 +50,9 @@ ini_set("soap.wsdl_cache_ttl", "0");
 
 $UserName = "<UserNameGoesHere>";
 $Password = "<PasswordGoesHere>";
-$DeveloperToken = "DeveloperTokenGoesHere>"; 
+$DeveloperToken = "<DeveloperTokenGoesHere>";
+$CustomerId = <CustomerIdGoesHere>;
 $AccountId = <AccountIdGoesHere>;
-
 
 // Campaign Management WSDL
 
@@ -67,7 +67,7 @@ try
     $campaigns = array();
    
     $campaign = new Campaign();
-    $campaign->Name = "Winter Clothing";
+    $campaign->Name = "Winter Clothing " . $_SERVER['REQUEST_TIME'];
     $campaign->Description = "Winter clothing line.";
     $campaign->BudgetType = BudgetLimitType::MonthlyBudgetSpendUntilDepleted;
     $campaign->MonthlyBudget = 1000.00;

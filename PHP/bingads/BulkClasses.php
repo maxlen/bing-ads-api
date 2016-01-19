@@ -1,5 +1,5 @@
 <?php
-// Generated on 8/11/2015 7:46:21 AM
+// Generated on 11/16/2015 6:46:27 AM
 
 namespace BingAds\Bulk
 {
@@ -516,52 +516,13 @@ namespace BingAds\Bulk
      */
     final class DownloadCampaignsByAccountIdsRequest
     {
-        /**
-         * The identifier of the account that contains the campaign data to download.
-         * @var integer[]
-         */
         public $AccountIds;
-
-        /**
-         * You may include performance data such as spend, in addition to entity data such as campaign settings.
-         * @var DataScope
-         */
         public $DataScope;
-
-        /**
-         * The file type of the download file.
-         * @var DownloadFileType
-         */
         public $DownloadFileType;
-
-        /**
-         * The entities to include in the download.
-         * @var BulkDownloadEntity
-         */
         public $Entities;
-
-        /**
-         * The format for records of the download file.
-         * @var string
-         */
         public $FormatVersion;
-
-        /**
-         * The last time that you requested a download.
-         * @var \DateTime
-         */
         public $LastSyncTimeInUTC;
-
-        /**
-         * The version of the location codes to return if the target contains location targets.
-         * @var string
-         */
         public $LocationTargetVersion;
-
-        /**
-         * Defines the start and end date when downloading performance data.
-         * @var PerformanceStatsDateRange
-         */
         public $PerformanceStatsDateRange;
     }
 
@@ -573,10 +534,6 @@ namespace BingAds\Bulk
      */
     final class DownloadCampaignsByAccountIdsResponse
     {
-        /**
-         * The identifier of the download request.
-         * @var string
-         */
         public $DownloadRequestId;
     }
 
@@ -593,52 +550,13 @@ namespace BingAds\Bulk
      */
     final class DownloadCampaignsByCampaignIdsRequest
     {
-        /**
-         * The campaigns to download.
-         * @var CampaignScope[]
-         */
         public $Campaigns;
-
-        /**
-         * You may include performance data such as spend, in addition to entity data such as campaign settings.
-         * @var DataScope
-         */
         public $DataScope;
-
-        /**
-         * The format of the download file.
-         * @var DownloadFileType
-         */
         public $DownloadFileType;
-
-        /**
-         * The entities to include in the download.
-         * @var BulkDownloadEntity
-         */
         public $Entities;
-
-        /**
-         * The format for records of the download file.
-         * @var string
-         */
         public $FormatVersion;
-
-        /**
-         * The last time that you requested a download.
-         * @var \DateTime
-         */
         public $LastSyncTimeInUTC;
-
-        /**
-         * The version of the location codes to return if the target contains location targets.
-         * @var string
-         */
         public $LocationTargetVersion;
-
-        /**
-         * Defines the start and end date when downloading performance data.
-         * @var PerformanceStatsDateRange
-         */
         public $PerformanceStatsDateRange;
     }
 
@@ -650,10 +568,6 @@ namespace BingAds\Bulk
      */
     final class DownloadCampaignsByCampaignIdsResponse
     {
-        /**
-         * The identifier of the download request.
-         * @var string
-         */
         public $DownloadRequestId;
     }
 
@@ -665,10 +579,6 @@ namespace BingAds\Bulk
      */
     final class GetBulkUploadStatusRequest
     {
-        /**
-         * The identifier of the upload request.
-         * @var string
-         */
         public $RequestId;
     }
 
@@ -680,16 +590,7 @@ namespace BingAds\Bulk
      */
     final class GetBulkUploadStatusResponse
     {
-        /**
-         * The status of the upload.
-         * @var string
-         */
         public $RequestStatus;
-
-        /**
-         * The URL of the file that contains the requested results, for example upload error information.
-         * @var string
-         */
         public $ResultFileUrl;
     }
 
@@ -702,16 +603,7 @@ namespace BingAds\Bulk
      */
     final class GetBulkUploadUrlRequest
     {
-        /**
-         * Specify whether to return errors and their corresponding data, or only the errors in the results file.
-         * @var ResponseMode
-         */
         public $ResponseMode;
-
-        /**
-         * The account identifier corresponding to the data that will be uploaded.
-         * @var integer
-         */
         public $AccountId;
     }
 
@@ -723,16 +615,7 @@ namespace BingAds\Bulk
      */
     final class GetBulkUploadUrlResponse
     {
-        /**
-         * The identifier of the upload request.
-         * @var string
-         */
         public $RequestId;
-
-        /**
-         * The URL where you may submit your bulk upload file with HTTP POST.
-         * @var string
-         */
         public $UploadUrl;
     }
 
@@ -744,10 +627,6 @@ namespace BingAds\Bulk
      */
     final class GetDetailedBulkDownloadStatusRequest
     {
-        /**
-         * The identifier of the download request.
-         * @var string
-         */
         public $RequestId;
     }
 
@@ -761,34 +640,10 @@ namespace BingAds\Bulk
      */
     final class GetDetailedBulkDownloadStatusResponse
     {
-        /**
-         * An array of OperationError objects corresponding to errors encountered during the system processing of the bulk file after your download request was submitted.
-         * @var OperationError[]
-         */
         public $Errors;
-
-        /**
-         * The list of key and value strings for forward compatibility.
-         * @var KeyValuePairOfstringstring[]
-         */
         public $ForwardCompatibilityMap;
-
-        /**
-         * The progress completion percentage for system processing of the bulk download file.
-         * @var integer
-         */
         public $PercentComplete;
-
-        /**
-         * The status of the download.
-         * @var string
-         */
         public $RequestStatus;
-
-        /**
-         * The URL that contains the download data.
-         * @var string
-         */
         public $ResultFileUrl;
     }
 
@@ -800,10 +655,6 @@ namespace BingAds\Bulk
      */
     final class GetDetailedBulkUploadStatusRequest
     {
-        /**
-         * The identifier of the upload request.
-         * @var string
-         */
         public $RequestId;
     }
 
@@ -817,34 +668,10 @@ namespace BingAds\Bulk
      */
     final class GetDetailedBulkUploadStatusResponse
     {
-        /**
-         * An array of OperationError objects corresponding to errors encountered during the system processing of the bulk file after your HTTP POST upload completed.
-         * @var OperationError[]
-         */
         public $Errors;
-
-        /**
-         * The list of key and value strings for forward compatibility.
-         * @var KeyValuePairOfstringstring[]
-         */
         public $ForwardCompatibilityMap;
-
-        /**
-         * The progress completion percentage for system processing of the uploaded bulk file.
-         * @var integer
-         */
         public $PercentComplete;
-
-        /**
-         * The status of the upload.
-         * @var string
-         */
         public $RequestStatus;
-
-        /**
-         * The URL of the file that contains the requested results, for example upload error information.
-         * @var string
-         */
         public $ResultFileUrl;
     }
 
@@ -856,10 +683,6 @@ namespace BingAds\Bulk
      */
     final class GetDownloadStatusRequest
     {
-        /**
-         * The identifier of the download request.
-         * @var string
-         */
         public $DownloadRequestId;
     }
 
@@ -871,16 +694,7 @@ namespace BingAds\Bulk
      */
     final class GetDownloadStatusResponse
     {
-        /**
-         * The URL that contains the download data.
-         * @var string
-         */
         public $DownloadUrl;
-
-        /**
-         * The status of the download.
-         * @var string
-         */
         public $RequestStatus;
     }
 }

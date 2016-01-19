@@ -1,5 +1,5 @@
 <?php
-// Generated on 8/11/2015 7:46:19 AM
+// Generated on 11/16/2015 6:46:12 AM
 
 namespace BingAds\Reporting
 {
@@ -46,231 +46,66 @@ namespace BingAds\Reporting
     }
 
     /**
-     * The AdExtensionDimensionReport is deprecated and is not supported.
-     * @link http://msdn.microsoft.com/en-us/library/jj713609(v=msads.90).aspx AdExtensionDimensionReportColumn Value Set
+     * Defines the attribute columns that you can include in the SearchCampaignChangeHistoryReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/hh912353(v=msads.90).aspx SearchCampaignChangeHistoryReportColumn Value Set
      * 
-     * @used-by AdExtensionDimensionReportRequest
+     * @used-by SearchCampaignChangeHistoryReportRequest
      */
-    final class AdExtensionDimensionReportColumn
+    final class SearchCampaignChangeHistoryReportColumn
     {
-        /** The Id element of an Account. */
+        /** The date and time of the change. */
+        const DateTime = 'DateTime';
+
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
-        /** The type name that corresponds to the AdExtensionTypeId column. */
-        const AdExtensionType = 'AdExtensionType';
-
-        /** The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
-        const AdExtensionId = 'AdExtensionId';
-
-        /** The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
-        const AdExtensionVersion = 'AdExtensionVersion';
-
-        /** The current delivery status. */
-        const Status = 'Status';
-
-        /** Positive integer system identifiers ranging from 1 through 20, which map to properties of the CallAdExtension, LocationAdExtension, and SiteLink objects. */
-        const AdExtensionPropertyId = 'AdExtensionPropertyId';
-
-        /** The human readable ad extension property value. */
-        const AdExtensionPropertyValue = 'AdExtensionPropertyValue';
-    }
-
-    /**
-     * Defines the device operating system values that you can use to filter the report data.
-     * @link http://msdn.microsoft.com/en-us/library/dn411633(v=msads.90).aspx DeviceOSReportFilter Value Set
-     * 
-     * @used-by AccountPerformanceReportFilter
-     * @used-by AdExtensionByAdReportFilter
-     * @used-by AdExtensionByKeywordReportFilter
-     * @used-by AdExtensionDetailReportFilter
-     * @used-by AdExtensionDimensionReportFilter
-     * @used-by AdGroupPerformanceReportFilter
-     * @used-by CampaignPerformanceReportFilter
-     */
-    final class DeviceOSReportFilter
-    {
-        /** The report will include ads displayed on a device operating system other than Android, BlackBerry, iOS, and Windows. */
-        const Other = 'Other';
-
-        /** The report will include ads displayed on Windows device operating systems. */
-        const Windows = 'Windows';
-
-        /** The report will include ads displayed on iOS device operating systems. */
-        const iOS = 'iOS';
-
-        /** The report will include ads displayed on Android device operating systems. */
-        const Android = 'Android';
-
-        /** The report will include ads displayed on BlackBerry device operating systems. */
-        const BlackBerry = 'BlackBerry';
-    }
-
-    /**
-     * Defines the device type values that you can use to filter the report data.
-     * @link http://msdn.microsoft.com/en-us/library/gg262850(v=msads.90).aspx DeviceTypeReportFilter Value Set
-     * 
-     * @used-by AccountPerformanceReportFilter
-     * @used-by AdDynamicTextPerformanceReportFilter
-     * @used-by AdExtensionByAdReportFilter
-     * @used-by AdExtensionByKeywordReportFilter
-     * @used-by AdExtensionDetailReportFilter
-     * @used-by AdExtensionDimensionReportFilter
-     * @used-by AdGroupPerformanceReportFilter
-     * @used-by AdPerformanceReportFilter
-     * @used-by BrandZonePerformanceReportFilter
-     * @used-by CampaignPerformanceReportFilter
-     * @used-by ConversionPerformanceReportFilter
-     * @used-by DestinationUrlPerformanceReportFilter
-     * @used-by KeywordPerformanceReportFilter
-     * @used-by ProductDimensionPerformanceReportFilter
-     * @used-by ProductOfferPerformanceReportFilter
-     * @used-by ProductPartitionPerformanceReportFilter
-     * @used-by ProductTargetPerformanceReportFilter
-     * @used-by SitePerformanceReportFilter
-     */
-    final class DeviceTypeReportFilter
-    {
-        /** The report will include text ads displayed on computers. */
-        const Computer = 'Computer';
-
-        /** The report will include text ads displayed on smartphones (any high fidelity device capable of rendering full HTML). */
-        const SmartPhone = 'SmartPhone';
-
-        /** The report will include mobile ads displayed on a mobile device. */
-        const NonSmartPhone = 'NonSmartPhone';
-
-        /** The report will include text ads displayed on a tablet device. */
-        const Tablet = 'Tablet';
-    }
-
-    /**
-     * Defines the aggregation values for reports that cannot specify hourly aggregation.
-     * @link http://msdn.microsoft.com/en-us/library/bb672057(v=msads.90).aspx NonHourlyReportAggregation Value Set
-     * 
-     * @used-by AdDynamicTextPerformanceReportRequest
-     * @used-by AdPerformanceReportRequest
-     * @used-by AgeGenderDemographicReportRequest
-     * @used-by ConversionPerformanceReportRequest
-     * @used-by DestinationUrlPerformanceReportRequest
-     * @used-by GeographicalLocationReportRequest
-     * @used-by GeoLocationPerformanceReportRequest
-     * @used-by GoalsAndFunnelsReportRequest
-     * @used-by PublisherUsagePerformanceReportRequest
-     * @used-by RichAdComponentPerformanceReportRequest
-     * @used-by ShareOfVoiceReportRequest
-     * @used-by TacticChannelReportRequest
-     * @used-by TrafficSourcesReportRequest
-     */
-    final class NonHourlyReportAggregation
-    {
-        /** The report data will be aggregated for the entire specified report time. */
-        const Summary = 'Summary';
-
-        /** The report data will be aggregated for each day. */
-        const Daily = 'Daily';
-
-        /** The report data is aggregated for each week. */
-        const Weekly = 'Weekly';
-
-        /** The report data will be aggregated for each month. */
-        const Monthly = 'Monthly';
-
-        /** The report data is aggregated for each year. */
-        const Yearly = 'Yearly';
-    }
-
-    /**
-     * Defines the attributes and performance statistics columns that you can include in the AdDynamicTextPerformanceReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/bb671878(v=msads.90).aspx AdDynamicTextPerformanceReportColumn Value Set
-     * 
-     * @used-by AdDynamicTextPerformanceReportRequest
-     */
-    final class AdDynamicTextPerformanceReportColumn
-    {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Id element of an Account. */
-        const AccountId = 'AccountId';
-
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The time period of each report row. */
-        const TimePeriod = 'TimePeriod';
+        /** The username of the user that made the change to settings within the account. */
+        const ChangedBy = 'ChangedBy';
 
-        /** The Name element of an AdGroup. */
+        /** The campaign name. */
+        const CampaignName = 'CampaignName';
+
+        /** The Bing Ads assigned identifier of a campaign. */
+        const CampaignId = 'CampaignId';
+
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Text element of a Keyword. */
-        const Keyword = 'Keyword';
-        const AdId = 'AdId';
-
-        /** The Title element of a MobileAd or TextAd. */
+        /** The ad title. */
         const AdTitle = 'AdTitle';
 
-        /** The Type element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
-        const AdType = 'AdType';
+        /** The text attribute of a text ad. */
+        const AdDescription = 'AdDescription';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
-        const DestinationUrl = 'DestinationUrl';
+        /** The ad display URL. */
+        const DisplayUrl = 'DisplayUrl';
 
-        /** The Param1 element of a Keyword or BiddableAdGroupCriterion. */
-        const Param1 = 'Param1';
+        /** The keyword text. */
+        const Keyword = 'Keyword';
 
-        /** The Param2 element of a Keyword or BiddableAdGroupCriterion. */
-        const Param2 = 'Param2';
+        /** The value that identifies the entity that changed. */
+        const ItemChanged = 'ItemChanged';
 
-        /** The Param3 element of a Keyword or BiddableAdGroupCriterion. */
-        const Param3 = 'Param3';
+        /** Identifies the attribute or property of the entity from the ItemChanged column that changed. */
+        const AttributeChanged = 'AttributeChanged';
 
-        /** The CurrencyType element of an Account. */
-        const CurrencyCode = 'CurrencyCode';
+        /** The value that indicates whether the element was added, updated, or deleted. */
+        const HowChanged = 'HowChanged';
 
-        /** The AdDistribution element of an AdGroup. */
-        const AdDistribution = 'AdDistribution';
+        /** The value before the change. */
+        const OldValue = 'OldValue';
 
-        /** The number of times an ad has been displayed on search results pages. */
-        const Impressions = 'Impressions';
-
-        /** The number of times that the ads in the account were clicked. */
-        const Clicks = 'Clicks';
-
-        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
-        const Ctr = 'Ctr';
-
-        /** The average cost per click (CPC). */
-        const AverageCpc = 'AverageCpc';
-
-        /** The cost per click (CPC) summed for each click. */
-        const Spend = 'Spend';
-
-        /** The average position of the ad on a webpage. */
-        const AveragePosition = 'AveragePosition';
-
-        /** The number of conversions. */
-        const Conversions = 'Conversions';
-
-        /** The conversion rate as a percentage. */
-        const ConversionRate = 'ConversionRate';
-
-        /** The cost per conversion. */
-        const CostPerConversion = 'CostPerConversion';
-
-        /** The average of the cost-per-thousand impressions of the ads. */
-        const AverageCpm = 'AverageCpm';
-
-        /** The PricingModel element of an AdGroup. */
-        const PricingModel = 'PricingModel';
-
-        /** The DeviceName element of a DeviceOSTargetBid. */
-        const DeviceType = 'DeviceType';
-
-        /** The Language element of an AdGroup. */
-        const Language = 'Language';
+        /** The value after the change. */
+        const NewValue = 'NewValue';
     }
 
     /**
@@ -308,40 +143,45 @@ namespace BingAds\Reporting
     }
 
     /**
-     * Defines the ad type values that you can use to filter the report data.
-     * @link http://msdn.microsoft.com/en-us/library/cc580687(v=msads.90).aspx AdTypeReportFilter Value Set
+     * Defines the types of changes to entities by which you can filter the report data.
+     * @link http://msdn.microsoft.com/en-us/library/hh912354(v=msads.90).aspx ChangeTypeReportFilter Value Set
      * 
-     * @used-by AdDynamicTextPerformanceReportFilter
-     * @used-by AdPerformanceReportFilter
-     * @used-by KeywordPerformanceReportFilter
-     * @used-by SearchQueryPerformanceReportFilter
-     * @used-by SitePerformanceReportFilter
+     * @used-by SearchCampaignChangeHistoryReportFilter
      */
-    final class AdTypeReportFilter
+    final class ChangeTypeReportFilter
     {
-        /** The report will include text ads. */
-        const Text = 'Text';
+        /** The report will include data for entities that have been added. */
+        const Added = 'Added';
 
-        /** The report will include mobile ads. */
-        const Mobile = 'Mobile';
+        /** The report will include data for entities that have been deleted. */
+        const Deleted = 'Deleted';
 
-        /** Not supported. */
-        const Image = 'Image';
+        /** The report will include data for elements of entities whose values have been updated. */
+        const Changed = 'Changed';
+    }
 
-        /** Not supported. */
-        const Local = 'Local';
+    /**
+     * Defines the types of entities by which you can filter the report data.
+     * @link http://msdn.microsoft.com/en-us/library/hh912355(v=msads.90).aspx ChangeEntityReportFilter Value Set
+     * 
+     * @used-by SearchCampaignChangeHistoryReportFilter
+     */
+    final class ChangeEntityReportFilter
+    {
+        /** The report will include data for accounts that have been added or deleted, or that have had account elements updated. */
+        const Account = 'Account';
 
-        /** Not supported. */
-        const RichMedia = 'RichMedia';
+        /** The report will include data for campaigns that have been added or deleted, or that have had campaign elements updated. */
+        const Campaign = 'Campaign';
 
-        /** The report will contain creative ads that are served by third parties. */
-        const ThirdPartyCreative = 'ThirdPartyCreative';
+        /** The report will include data for ad groups that have been added or deleted, or that have had ad group elements updated. */
+        const AdGroup = 'AdGroup';
 
-        /** The report will include rich ads. */
-        const RichAd = 'RichAd';
+        /** The report will include data for ads that have been added or deleted, or that have had ad elements updated. */
+        const Ad = 'Ad';
 
-        /** The report will include product ads. */
-        const Product = 'Product';
+        /** The report will include data for keywords that have been added or deleted, or that have had keyword elements updated. */
+        const Keyword = 'Keyword';
     }
 
     /**
@@ -390,6 +230,217 @@ namespace BingAds\Reporting
     }
 
     /**
+     * Defines the aggregation values for reports that cannot specify hourly aggregation.
+     * @link http://msdn.microsoft.com/en-us/library/bb672057(v=msads.90).aspx NonHourlyReportAggregation Value Set
+     * 
+     * @used-by AdDynamicTextPerformanceReportRequest
+     * @used-by AdPerformanceReportRequest
+     * @used-by AgeGenderDemographicReportRequest
+     * @used-by ConversionPerformanceReportRequest
+     * @used-by DestinationUrlPerformanceReportRequest
+     * @used-by GeographicalLocationReportRequest
+     * @used-by GeoLocationPerformanceReportRequest
+     * @used-by GoalsAndFunnelsReportRequest
+     * @used-by PublisherUsagePerformanceReportRequest
+     * @used-by RichAdComponentPerformanceReportRequest
+     * @used-by ShareOfVoiceReportRequest
+     * @used-by TacticChannelReportRequest
+     * @used-by TrafficSourcesReportRequest
+     */
+    final class NonHourlyReportAggregation
+    {
+        /** The report data will be aggregated for the entire specified report time. */
+        const Summary = 'Summary';
+
+        /** The report data will be aggregated for each day. */
+        const Daily = 'Daily';
+
+        /** The report data is aggregated for each week. */
+        const Weekly = 'Weekly';
+
+        /** The report data will be aggregated for each month. */
+        const Monthly = 'Monthly';
+
+        /** The report data is aggregated for each year. */
+        const Yearly = 'Yearly';
+    }
+
+    /**
+     * Defines the attributes and performance statistics columns that you can include in the AdDynamicTextPerformanceReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/bb671878(v=msads.90).aspx AdDynamicTextPerformanceReportColumn Value Set
+     * 
+     * @used-by AdDynamicTextPerformanceReportRequest
+     */
+    final class AdDynamicTextPerformanceReportColumn
+    {
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The time period of each report row. */
+        const TimePeriod = 'TimePeriod';
+
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
+
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
+
+        /** The keyword text. */
+        const Keyword = 'Keyword';
+        const AdId = 'AdId';
+
+        /** The ad title. */
+        const AdTitle = 'AdTitle';
+
+        /** The ad type. */
+        const AdType = 'AdType';
+
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
+        const DestinationUrl = 'DestinationUrl';
+
+        /** The Param1 element of a Keyword or BiddableAdGroupCriterion. */
+        const Param1 = 'Param1';
+
+        /** The Param2 element of a Keyword or BiddableAdGroupCriterion. */
+        const Param2 = 'Param2';
+
+        /** The Param3 element of a Keyword or BiddableAdGroupCriterion. */
+        const Param3 = 'Param3';
+
+        /** The account currency type. */
+        const CurrencyCode = 'CurrencyCode';
+
+        /** The ad distribution attribute of an ad group. */
+        const AdDistribution = 'AdDistribution';
+
+        /** The number of times an ad has been displayed on search results pages. */
+        const Impressions = 'Impressions';
+
+        /** The number of times that the ads in the account were clicked. */
+        const Clicks = 'Clicks';
+
+        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
+        const Ctr = 'Ctr';
+
+        /** The average cost per click (CPC). */
+        const AverageCpc = 'AverageCpc';
+
+        /** The cost per click (CPC) summed for each click. */
+        const Spend = 'Spend';
+
+        /** The average position of the ad on a webpage. */
+        const AveragePosition = 'AveragePosition';
+
+        /** The number of conversions. */
+        const Conversions = 'Conversions';
+
+        /** The conversion rate as a percentage. */
+        const ConversionRate = 'ConversionRate';
+
+        /** The cost per conversion. */
+        const CostPerConversion = 'CostPerConversion';
+
+        /** The average of the cost-per-thousand impressions of the ads. */
+        const AverageCpm = 'AverageCpm';
+
+        /** The PricingModel element of an AdGroup. */
+        const PricingModel = 'PricingModel';
+
+        /** The device name attribute of a device OS target bid. */
+        const DeviceType = 'DeviceType';
+
+        /** The ad group language. */
+        const Language = 'Language';
+    }
+
+    /**
+     * Defines the ad type values that you can use to filter the report data.
+     * @link http://msdn.microsoft.com/en-us/library/cc580687(v=msads.90).aspx AdTypeReportFilter Value Set
+     * 
+     * @used-by AdDynamicTextPerformanceReportFilter
+     * @used-by AdPerformanceReportFilter
+     * @used-by KeywordPerformanceReportFilter
+     * @used-by SearchQueryPerformanceReportFilter
+     * @used-by SitePerformanceReportFilter
+     */
+    final class AdTypeReportFilter
+    {
+        /** The report will include text ads. */
+        const Text = 'Text';
+
+        /** The report will include mobile ads. */
+        const Mobile = 'Mobile';
+
+        /** Not supported. */
+        const Image = 'Image';
+
+        /** Not supported. */
+        const Local = 'Local';
+
+        /** Not supported. */
+        const RichMedia = 'RichMedia';
+
+        /** The report will contain creative ads that are served by third parties. */
+        const ThirdPartyCreative = 'ThirdPartyCreative';
+
+        /** The report will include rich ads. */
+        const RichAd = 'RichAd';
+
+        /** The report will include product ads. */
+        const Product = 'Product';
+
+        /** Reserved for future use. */
+        const AppInstall = 'AppInstall';
+    }
+
+    /**
+     * Defines the device type values that you can use to filter the report data.
+     * @link http://msdn.microsoft.com/en-us/library/gg262850(v=msads.90).aspx DeviceTypeReportFilter Value Set
+     * 
+     * @used-by AccountPerformanceReportFilter
+     * @used-by AdDynamicTextPerformanceReportFilter
+     * @used-by AdExtensionByAdReportFilter
+     * @used-by AdExtensionByKeywordReportFilter
+     * @used-by AdExtensionDetailReportFilter
+     * @used-by AdExtensionDimensionReportFilter
+     * @used-by AdGroupPerformanceReportFilter
+     * @used-by AdPerformanceReportFilter
+     * @used-by BrandZonePerformanceReportFilter
+     * @used-by CampaignPerformanceReportFilter
+     * @used-by ConversionPerformanceReportFilter
+     * @used-by DestinationUrlPerformanceReportFilter
+     * @used-by GoalsAndFunnelsReportFilter
+     * @used-by KeywordPerformanceReportFilter
+     * @used-by ProductDimensionPerformanceReportFilter
+     * @used-by ProductOfferPerformanceReportFilter
+     * @used-by ProductPartitionPerformanceReportFilter
+     * @used-by ProductPartitionUnitPerformanceReportFilter
+     * @used-by ProductTargetPerformanceReportFilter
+     * @used-by ShareOfVoiceReportFilter
+     * @used-by SitePerformanceReportFilter
+     */
+    final class DeviceTypeReportFilter
+    {
+        /** The report will include text ads displayed on computers. */
+        const Computer = 'Computer';
+
+        /** The report will include text ads displayed on smartphones (any high fidelity device capable of rendering full HTML). */
+        const SmartPhone = 'SmartPhone';
+
+        /** The report will include mobile ads displayed on a mobile device. */
+        const NonSmartPhone = 'NonSmartPhone';
+
+        /** The report will include text ads displayed on a tablet device. */
+        const Tablet = 'Tablet';
+    }
+
+    /**
      * Defines the aggregation values that you can use for a report.
      * @link http://msdn.microsoft.com/en-us/library/bb672067(v=msads.90).aspx ReportAggregation Value Set
      * 
@@ -398,6 +449,7 @@ namespace BingAds\Reporting
      * @used-by AdExtensionByKeywordReportRequest
      * @used-by AdExtensionDetailReportRequest
      * @used-by AdGroupPerformanceReportRequest
+     * @used-by AudiencePerformanceReportRequest
      * @used-by BrandZonePerformanceReportRequest
      * @used-by CallDetailReportRequest
      * @used-by CampaignPerformanceReportRequest
@@ -405,6 +457,7 @@ namespace BingAds\Reporting
      * @used-by ProductDimensionPerformanceReportRequest
      * @used-by ProductOfferPerformanceReportRequest
      * @used-by ProductPartitionPerformanceReportRequest
+     * @used-by ProductPartitionUnitPerformanceReportRequest
      * @used-by ProductTargetPerformanceReportRequest
      * @used-by SitePerformanceReportRequest
      */
@@ -640,6 +693,43 @@ namespace BingAds\Reporting
 
         /** The sum total of the time customers spent browsing your site divided by the number of customers that came to your site. */
         const AverageDurationPerVisit = 'AverageDurationPerVisit';
+
+        /** The current TrackingUrlTemplate element of the AdGroup. */
+        const TrackingTemplate = 'TrackingTemplate';
+
+        /** The current UrlCustomParameters element of the AdGroup. */
+        const CustomParameters = 'CustomParameters';
+    }
+
+    /**
+     * Defines the device operating system values that you can use to filter the report data.
+     * @link http://msdn.microsoft.com/en-us/library/dn411633(v=msads.90).aspx DeviceOSReportFilter Value Set
+     * 
+     * @used-by AccountPerformanceReportFilter
+     * @used-by AdExtensionByAdReportFilter
+     * @used-by AdExtensionByKeywordReportFilter
+     * @used-by AdExtensionDetailReportFilter
+     * @used-by AdExtensionDimensionReportFilter
+     * @used-by AdGroupPerformanceReportFilter
+     * @used-by CampaignPerformanceReportFilter
+     * @used-by GoalsAndFunnelsReportFilter
+     */
+    final class DeviceOSReportFilter
+    {
+        /** The report will include ads displayed on a device operating system other than Android, BlackBerry, iOS, and Windows. */
+        const Other = 'Other';
+
+        /** The report will include ads displayed on Windows device operating systems. */
+        const Windows = 'Windows';
+
+        /** The report will include ads displayed on iOS device operating systems. */
+        const iOS = 'iOS';
+
+        /** The report will include ads displayed on Android device operating systems. */
+        const Android = 'Android';
+
+        /** The report will include ads displayed on BlackBerry device operating systems. */
+        const BlackBerry = 'BlackBerry';
     }
 
     /**
@@ -677,46 +767,46 @@ namespace BingAds\Reporting
      */
     final class AdPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Title element of a MobileAd or TextAd. */
+        /** The ad title. */
         const AdTitle = 'AdTitle';
 
-        /** The Text element of a MobileAd or TextAd. */
+        /** The text attribute of a text ad. */
         const AdDescription = 'AdDescription';
 
-        /** The Type element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The ad type. */
         const AdType = 'AdType';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
-        /** The AdDistribution element of an AdGroup. */
+        /** The ad distribution attribute of an ad group. */
         const AdDistribution = 'AdDistribution';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -752,16 +842,16 @@ namespace BingAds\Reporting
         /** The PricingModel element of an AdGroup. */
         const PricingModel = 'PricingModel';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
         const DestinationUrl = 'DestinationUrl';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
-        /** The DisplayUrl element of a MobileAd or TextAd. */
+        /** The ad display URL. */
         const DisplayUrl = 'DisplayUrl';
 
         /** Reserved for internal use. */
@@ -776,7 +866,7 @@ namespace BingAds\Reporting
         /** Reserved for internal use. */
         const BusinessCategoryName = 'BusinessCategoryName';
 
-        /** The Status element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The ad status. */
         const AdStatus = 'AdStatus';
 
         /** The Network element of an AdGroup. */
@@ -785,7 +875,7 @@ namespace BingAds\Reporting
         /** The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. */
         const TopVsOther = 'TopVsOther';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -814,6 +904,21 @@ namespace BingAds\Reporting
 
         /** The revenue per assist. */
         const RevenuePerAssist = 'RevenuePerAssist';
+
+        /** The current TrackingUrlTemplate element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const TrackingTemplate = 'TrackingTemplate';
+
+        /** The current UrlCustomParameters element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const CustomParameters = 'CustomParameters';
+
+        /** The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const FinalURL = 'FinalURL';
+
+        /** The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const FinalMobileURL = 'FinalMobileURL';
+
+        /** Reserved for future use. */
+        const FinalAppURL = 'FinalAppURL';
     }
 
     /**
@@ -824,34 +929,34 @@ namespace BingAds\Reporting
      */
     final class RichAdComponentPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
-        /** The Title element of a MobileAd or TextAd. */
+        /** The ad title. */
         const AdTitle = 'AdTitle';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
         /** The rich ad component type. */
@@ -949,55 +1054,55 @@ namespace BingAds\Reporting
      */
     final class KeywordPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Text element of a Keyword. */
+        /** The keyword text. */
         const Keyword = 'Keyword';
 
-        /** The Id element of a Keyword. */
+        /** The Bing Ads assigned identifier of a keyword. */
         const KeywordId = 'KeywordId';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
-        /** The Type element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The ad type. */
         const AdType = 'AdType';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
         const DestinationUrl = 'DestinationUrl';
 
         /** The maximum cost per click. */
         const CurrentMaxCpc = 'CurrentMaxCpc';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
         /** The match type used to deliver an ad. */
         const DeliveredMatchType = 'DeliveredMatchType';
 
-        /** The AdDistribution element of an AdGroup. */
+        /** The ad distribution attribute of an ad group. */
         const AdDistribution = 'AdDistribution';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -1033,10 +1138,10 @@ namespace BingAds\Reporting
         /** The PricingModel element of an AdGroup. */
         const PricingModel = 'PricingModel';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
         /** The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms. */
@@ -1051,7 +1156,7 @@ namespace BingAds\Reporting
         /** A numeric score that indicates whether your landing page is likely to provide a good experience to customers who click your ad and land on your website. */
         const LandingPageUserExperience = 'LandingPageUserExperience';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
         /** The historic quality score of the keyword. */
@@ -1084,16 +1189,16 @@ namespace BingAds\Reporting
         /** Reserved for internal use. */
         const BusinessCategoryName = 'BusinessCategoryName';
 
-        /** The Status element of a Campaign. */
+        /** The campaign status. */
         const CampaignStatus = 'CampaignStatus';
 
-        /** The AccountLifeCycleStatus element of an Account. */
+        /** The account lifecycle status. */
         const AccountStatus = 'AccountStatus';
 
-        /** The Status element of an AdGroup. */
+        /** The ad group status. */
         const AdGroupStatus = 'AdGroupStatus';
 
-        /** The Status element of a Keyword. */
+        /** The keyword status. */
         const KeywordStatus = 'KeywordStatus';
 
         /** The Network element of an AdGroup. */
@@ -1126,7 +1231,7 @@ namespace BingAds\Reporting
         /** The revenue per assist. */
         const RevenuePerAssist = 'RevenuePerAssist';
 
-        /** The percentage of customers to your website that only view one page (the landing page) and then leave your website. */
+        /** The percentage of website visitors who only view one page (the landing page) and then leave your website. */
         const BounceRate = 'BounceRate';
 
         /** The total number of times customers visited your site. */
@@ -1135,8 +1240,23 @@ namespace BingAds\Reporting
         /** The average number of pages each customer goes to while on your site. */
         const AveragePagesPerVisit = 'AveragePagesPerVisit';
 
-        /** The sum total of the time customers spent browsing your site divided by the number of customers that came to your site. */
+        /** The sum total of the time customers spent browsing your site divided by the number of customers that visited your site. */
         const AverageDurationPerVisit = 'AverageDurationPerVisit';
+
+        /** The current TrackingUrlTemplate element of the Keyword. */
+        const TrackingTemplate = 'TrackingTemplate';
+
+        /** The current UrlCustomParameters element of the Keyword. */
+        const CustomParameters = 'CustomParameters';
+
+        /** The FinalUrls element of the Keyword. */
+        const FinalURL = 'FinalURL';
+
+        /** The FinalMobileUrls element of the Keyword. */
+        const FinalMobileURL = 'FinalMobileURL';
+
+        /** Reserved for future use. */
+        const FinalAppURL = 'FinalAppURL';
     }
 
     /**
@@ -1206,40 +1326,40 @@ namespace BingAds\Reporting
      */
     final class DestinationUrlPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
-        /** The AdDistribution element of an AdGroup. */
+        /** The ad distribution attribute of an ad group. */
         const AdDistribution = 'AdDistribution';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
         const DestinationUrl = 'DestinationUrl';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -1275,13 +1395,13 @@ namespace BingAds\Reporting
         /** The PricingModel element of an AdGroup. */
         const PricingModel = 'PricingModel';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -1316,6 +1436,21 @@ namespace BingAds\Reporting
 
         /** The revenue per assist. */
         const RevenuePerAssist = 'RevenuePerAssist';
+
+        /** The current TrackingUrlTemplate element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const TrackingTemplate = 'TrackingTemplate';
+
+        /** The current UrlCustomParameters element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const CustomParameters = 'CustomParameters';
+
+        /** The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const FinalURL = 'FinalURL';
+
+        /** The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const FinalMobileURL = 'FinalMobileURL';
+
+        /** Reserved for future use. */
+        const FinalAppURL = 'FinalAppURL';
     }
 
     /**
@@ -1326,31 +1461,31 @@ namespace BingAds\Reporting
      */
     final class BudgetSummaryReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
         /** The date for the downloaded report records. */
         const Date = 'Date';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
-        /** The budgeted amount of money to spend per month. */
+        /** The average amount of campaign budget spent during a calendar month. */
         const MonthlyBudget = 'MonthlyBudget';
 
-        /** Your budgeted amount of money to spend per day. */
+        /** The average amount of campaign budget spent per day. */
         const DailySpend = 'DailySpend';
 
         /** The amount of money spent to date for the month. */
@@ -1389,31 +1524,31 @@ namespace BingAds\Reporting
      */
     final class AgeGenderDemographicReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The AdDistribution element of an AdGroup. */
+        /** The ad distribution attribute of an ad group. */
         const AdDistribution = 'AdDistribution';
 
         /** The age group of the audience who might have viewed the ad, if known. */
@@ -1431,7 +1566,7 @@ namespace BingAds\Reporting
         /** The estimated click-through rate (Ctr) as a percentage. */
         const EstimatedCtr = 'EstimatedCtr';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
     }
 
@@ -1443,28 +1578,28 @@ namespace BingAds\Reporting
      */
     final class GeographicalLocationReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
         /** The country used to deliver the ad. */
@@ -1476,10 +1611,10 @@ namespace BingAds\Reporting
         /** The metro area used to deliver the ad. */
         const MetroArea = 'MetroArea';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
-        /** The AdDistribution element of an AdGroup. */
+        /** The ad distribution attribute of an ad group. */
         const AdDistribution = 'AdDistribution';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -1509,7 +1644,7 @@ namespace BingAds\Reporting
         /** The Radius element of a RadiusTargetBid. */
         const Radius = 'Radius';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
         /** The city used to deliver the ad. */
@@ -1527,7 +1662,7 @@ namespace BingAds\Reporting
         /** The name of a metro area if the user's geographical intent can be determined. */
         const QueryIntentDMA = 'QueryIntentDMA';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -1539,7 +1674,7 @@ namespace BingAds\Reporting
         /** The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. */
         const TopVsOther = 'TopVsOther';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
         /** The operating system of the device reported in the DeviceType column. */
@@ -1584,34 +1719,34 @@ namespace BingAds\Reporting
      */
     final class PublisherUsagePerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
-        /** The AdDistribution element of an AdGroup. */
+        /** The ad distribution attribute of an ad group. */
         const AdDistribution = 'AdDistribution';
 
         /** The URL of the website that displayed the ad. */
@@ -1650,10 +1785,10 @@ namespace BingAds\Reporting
         /** The PricingModel element of an AdGroup. */
         const PricingModel = 'PricingModel';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -1665,7 +1800,7 @@ namespace BingAds\Reporting
         /** The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. */
         const TopVsOther = 'TopVsOther';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
         /** The operating system of the device reported in the DeviceType column. */
@@ -1716,28 +1851,28 @@ namespace BingAds\Reporting
      */
     final class SitePerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
         /** The URL of the website that displayed the ad. */
@@ -1746,22 +1881,22 @@ namespace BingAds\Reporting
         /** The Id element of a SitePlacement. */
         const SiteId = 'SiteId';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
         const DestinationUrl = 'DestinationUrl';
 
         /** The maximum cost per click. */
         const CurrentMaxCpc = 'CurrentMaxCpc';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
         /** The match type used to deliver an ad. */
         const DeliveredMatchType = 'DeliveredMatchType';
 
-        /** The AdDistribution element of an AdGroup. */
+        /** The ad distribution attribute of an ad group. */
         const AdDistribution = 'AdDistribution';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -1791,7 +1926,7 @@ namespace BingAds\Reporting
         /** The cost per conversion. */
         const CostPerConversion = 'CostPerConversion';
 
-        /** The Type element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The ad type. */
         const AdType = 'AdType';
 
         /** The average of the cost-per-thousand impressions of the ads. */
@@ -1800,11 +1935,26 @@ namespace BingAds\Reporting
         /** The PricingModel element of an AdGroup. */
         const PricingModel = 'PricingModel';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
+
+        /** The current TrackingUrlTemplate element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const TrackingTemplate = 'TrackingTemplate';
+
+        /** The current UrlCustomParameters element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const CustomParameters = 'CustomParameters';
+
+        /** The FinalUrls element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const FinalURL = 'FinalURL';
+
+        /** The FinalMobileUrls element of the Ad, Keyword, or BiddableAdGroupCriterion. */
+        const FinalMobileURL = 'FinalMobileURL';
+
+        /** Reserved for future use. */
+        const FinalAppURL = 'FinalAppURL';
     }
 
     /**
@@ -1848,49 +1998,49 @@ namespace BingAds\Reporting
      */
     final class SearchQueryPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
-        /** The Type element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The ad type. */
         const AdType = 'AdType';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
         const DestinationUrl = 'DestinationUrl';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
         const DeliveredMatchType = 'DeliveredMatchType';
 
-        /** The Status element of a Campaign. */
+        /** The campaign status. */
         const CampaignStatus = 'CampaignStatus';
 
-        /** The Status element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The ad status. */
         const AdStatus = 'AdStatus';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -1914,13 +2064,13 @@ namespace BingAds\Reporting
         /** The search term used by your potential audience. */
         const SearchQuery = 'SearchQuery';
 
-        /** The Text element of a Keyword. */
+        /** The keyword text. */
         const Keyword = 'Keyword';
 
         /** The name of the product target. */
         const ProductTarget = 'ProductTarget';
 
-        /** The Id element of an AdGroupCriterion. */
+        /** The Bing Ads assigned identifier of an ad group criterion. */
         const AdGroupCriterionId = 'AdGroupCriterionId';
 
         /** The number of conversions. */
@@ -1932,10 +2082,10 @@ namespace BingAds\Reporting
         /** The cost per conversion. */
         const CostPerConversion = 'CostPerConversion';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
-        /** The Id element of a Keyword. */
+        /** The Bing Ads assigned identifier of a keyword. */
         const KeywordId = 'KeywordId';
 
         /** The Network element of an AdGroup. */
@@ -1944,7 +2094,7 @@ namespace BingAds\Reporting
         /** The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. */
         const TopVsOther = 'TopVsOther';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
         /** The operating system of the device reported in the DeviceType column. */
@@ -2032,34 +2182,34 @@ namespace BingAds\Reporting
      */
     final class ConversionPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Text element of a Keyword. */
+        /** The keyword text. */
         const Keyword = 'Keyword';
 
-        /** The Id element of a Keyword. */
+        /** The Bing Ads assigned identifier of a keyword. */
         const KeywordId = 'KeywordId';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -2104,122 +2254,152 @@ namespace BingAds\Reporting
         /** The revenue per assist. */
         const RevenuePerAssist = 'RevenuePerAssist';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
     }
 
     /**
-     * Defines the attributes and performance statistics columns that you can include in the ProductDimensionPerformanceReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/dn913140(v=msads.90).aspx ProductDimensionPerformanceReportColumn Value Set
+     * Defines the attributes and performance statistics columns that you can include in the GoalsAndFunnelsReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/gg262845(v=msads.90).aspx GoalsAndFunnelsReportColumn Value Set
      * 
-     * @used-by ProductDimensionPerformanceReportRequest
+     * @used-by GoalsAndFunnelsReportRequest
      */
-    final class ProductDimensionPerformanceReportColumn
+    final class GoalsAndFunnelsReportColumn
     {
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of an Account. */
-        const AccountName = 'AccountName';
-
-        /** The Number element of an Account. */
-        const AccountNumber = 'AccountNumber';
-
-        /** The Name element of an AdGroup. */
-        const AdGroupName = 'AdGroupName';
-
-        /** The Id element of an AdGroup. */
-        const AdGroupId = 'AdGroupId';
-
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
-        const AdId = 'AdId';
-        const AdStatus = 'AdStatus';
-
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The CurrencyType element of an Account. */
-        const CurrencyCode = 'CurrencyCode';
+        /** The Bing Ads assigned identifier of a campaign. */
+        const CampaignId = 'CampaignId';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
-        const DeviceType = 'DeviceType';
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
 
-        /** The Language element of an AdGroup. */
-        const Language = 'Language';
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
 
-        /** The report will include a column that contains the unique identifier provided by a merchant for each product offer. */
-        const MerchantProductId = 'MerchantProductId';
-        const SellerName = 'SellerName';
+        /** The keyword text. */
+        const Keyword = 'Keyword';
 
-        /** The product item name. */
-        const Title = 'Title';
+        /** The Bing Ads assigned identifier of a keyword. */
+        const KeywordId = 'KeywordId';
 
-        /** The condition of a product item. */
-        const Condition = 'Condition';
+        /** The name of your event tracking or campaign analytics goal. */
+        const Goal = 'Goal';
 
-        /** The product item's manufacturer, brand, or publisher. */
-        const Brand = 'Brand';
+        /** The number of times that a user entered step 1 of the funnel. */
+        const Step1Count = 'Step1Count';
 
-        /** The value of the Custom_label_0 field in your Bing Merchant Center catalog. */
-        const CustomLabel0 = 'CustomLabel0';
+        /** The number of times that a user entered step 2 of the funnel. */
+        const Step2Count = 'Step2Count';
 
-        /** The value of the Custom_label_1 field in your Bing Merchant Center catalog. */
-        const CustomLabel1 = 'CustomLabel1';
+        /** The number of times that a user entered step 3 of the funnel. */
+        const Step3Count = 'Step3Count';
 
-        /** The value of the Custom_label_2 field in your Bing Merchant Center catalog. */
-        const CustomLabel2 = 'CustomLabel2';
+        /** The number of times that a user entered step 4 of the funnel. */
+        const Step4Count = 'Step4Count';
 
-        /** The value of the Custom_label_3 field in your Bing Merchant Center catalog. */
-        const CustomLabel3 = 'CustomLabel3';
+        /** The number of times that a user entered step 5 of the funnel. */
+        const Step5Count = 'Step5Count';
 
-        /** The value of the Custom_label_4 field in your Bing Merchant Center catalog. */
-        const CustomLabel4 = 'CustomLabel4';
+        /** The number of conversions. */
+        const Conversions = 'Conversions';
 
-        /** The first level value of the Product_type field in your Bing Merchant Center catalog. */
-        const ProductType1 = 'ProductType1';
+        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
+        const Assists = 'Assists';
 
-        /** The second level value of the Product_type field in your Bing Merchant Center catalog. */
-        const ProductType2 = 'ProductType2';
-
-        /** The third level value of the Product_type field in your Bing Merchant Center catalog. */
-        const ProductType3 = 'ProductType3';
-
-        /** The fourth level value of the Product_type field in your Bing Merchant Center catalog. */
-        const ProductType4 = 'ProductType4';
-
-        /** The fifth level value of the Product_type field in your Bing Merchant Center catalog. */
-        const ProductType5 = 'ProductType5';
-
-        /** The first level value of the Product_category field in your Bing Merchant Center catalog. */
-        const ProductCategory1 = 'ProductCategory1';
-
-        /** The second level value of the Product_category field in your Bing Merchant Center catalog. */
-        const ProductCategory2 = 'ProductCategory2';
-
-        /** The third level value of the Product_category field in your Bing Merchant Center catalog. */
-        const ProductCategory3 = 'ProductCategory3';
-
-        /** The fourth level value of the Product_category field in your Bing Merchant Center catalog. */
-        const ProductCategory4 = 'ProductCategory4';
-
-        /** The fifth level value of the Product_category field in your Bing Merchant Center catalog. */
-        const ProductCategory5 = 'ProductCategory5';
-
-        /** The number of times an ad has been displayed on search results pages. */
-        const Impressions = 'Impressions';
-
-        /** The number of times that the ads in the account were clicked. */
-        const Clicks = 'Clicks';
-
-        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
-        const Ctr = 'Ctr';
-
-        /** The average cost per click (CPC). */
-        const AverageCpc = 'AverageCpc';
+        /** The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal. */
+        const FunnelConversionRate = 'FunnelConversionRate';
 
         /** The cost per click (CPC) summed for each click. */
         const Spend = 'Spend';
-        const AverageCpm = 'AverageCpm';
+
+        /** The revenue optionally reported by the advertiser as a result of conversions. */
+        const Revenue = 'Revenue';
+
+        /** The return on ad spend (ROAS). */
+        const ReturnOnAdSpend = 'ReturnOnAdSpend';
+
+        /** Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. */
+        const ExtendedCost = 'ExtendedCost';
+
+        /** The Bing Ads assigned identifier of a goal. */
+        const GoalId = 'GoalId';
+
+        /** The device name attribute of a device OS target bid. */
+        const DeviceType = 'DeviceType';
+
+        /** The operating system of the device reported in the DeviceType column. */
+        const DeviceOS = 'DeviceOS';
+    }
+
+    /**
+     * Defines the attributes and performance statistics columns that you can include in the TrafficSourcesReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/gg262847(v=msads.90).aspx TrafficSourcesReportColumn Value Set
+     * 
+     * @used-by TrafficSourcesReportRequest
+     */
+    final class TrafficSourcesReportColumn
+    {
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
+        /** The time period of each report row. */
+        const TimePeriod = 'TimePeriod';
+
+        /** The origin of the advertising traffic, which is one of the following: */
+        const Source = 'Source';
+
+        /** The name of your event tracking or campaign analytics goal. */
+        const Goal = 'Goal';
+
+        /** The number of times that a user entered step 1 of the funnel. */
+        const Step1Count = 'Step1Count';
+
+        /** The number of times that a user entered step 2 of the funnel. */
+        const Step2Count = 'Step2Count';
+
+        /** The number of times that a user entered step 3 of the funnel. */
+        const Step3Count = 'Step3Count';
+
+        /** The number of times that a user entered step 4 of the funnel. */
+        const Step4Count = 'Step4Count';
+
+        /** The number of times that a user entered step 5 of the funnel. */
+        const Step5Count = 'Step5Count';
+
+        /** The number of conversions. */
+        const Conversions = 'Conversions';
+
+        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
+        const Assists = 'Assists';
+
+        /** The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal. */
+        const FunnelConversionRate = 'FunnelConversionRate';
+
+        /** The revenue optionally reported by the advertiser as a result of conversions. */
+        const Revenue = 'Revenue';
+
+        /** The revenue per conversion. */
+        const RevenuePerConversion = 'RevenuePerConversion';
     }
 
     /**
@@ -2421,96 +2601,12 @@ namespace BingAds\Reporting
 
         /** The sum total of the time customers spent browsing your site divided by the number of customers that came to your site. */
         const AverageDurationPerVisit = 'AverageDurationPerVisit';
-    }
 
-    /**
-     * Defines the attributes and performance statistics columns that you can include in the TacticChannelReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/gg262851(v=msads.90).aspx TacticChannelReportColumn Value Set
-     * 
-     * @used-by TacticChannelReportRequest
-     */
-    final class TacticChannelReportColumn
-    {
-        /** The Name element of an Account. */
-        const AccountName = 'AccountName';
+        /** The current TrackingUrlTemplate element of the Campaign. */
+        const TrackingTemplate = 'TrackingTemplate';
 
-        /** The Number element of an Account. */
-        const AccountNumber = 'AccountNumber';
-
-        /** The Id element of an Account. */
-        const AccountId = 'AccountId';
-
-        /** The time period of each report row. */
-        const TimePeriod = 'TimePeriod';
-
-        /** The name of the advertising tactic. */
-        const Tactic = 'Tactic';
-
-        /** The name of the channel provider that displayed the ads. */
-        const Channel = 'Channel';
-
-        /** The name of the campaign that you defined on a paid search provider other than Bing Ads. */
-        const ThirdPartyCampaign = 'ThirdPartyCampaign';
-
-        /** The name of the ad group that you defined on a paid search provider other than Bing Ads. */
-        const ThirdPartyAdGroup = 'ThirdPartyAdGroup';
-
-        /** The keyword to track that you defined on a paid search provider other than Bing Ads. */
-        const ThirdPartyTerm = 'ThirdPartyTerm';
-
-        /** The Name element of a Campaign. */
-        const CampaignName = 'CampaignName';
-
-        /** The Id element of a Campaign. */
-        const CampaignId = 'CampaignId';
-
-        /** The Name element of an AdGroup. */
-        const AdGroupName = 'AdGroupName';
-
-        /** The Id element of an AdGroup. */
-        const AdGroupId = 'AdGroupId';
-
-        /** The Text element of a Keyword. */
-        const Keyword = 'Keyword';
-
-        /** The Id element of a Keyword. */
-        const KeywordId = 'KeywordId';
-
-        /** The name of your event tracking or campaign analytics goal. */
-        const Goal = 'Goal';
-
-        /** The number of times that a user entered step 1 of the funnel. */
-        const Step1Count = 'Step1Count';
-
-        /** The number of times that a user entered step 2 of the funnel. */
-        const Step2Count = 'Step2Count';
-
-        /** The number of times that a user entered step 3 of the funnel. */
-        const Step3Count = 'Step3Count';
-
-        /** The number of times that a user entered step 4 of the funnel. */
-        const Step4Count = 'Step4Count';
-
-        /** The number of times that a user entered step 5 of the funnel. */
-        const Step5Count = 'Step5Count';
-
-        /** The number of conversions. */
-        const Conversions = 'Conversions';
-
-        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
-        const Assists = 'Assists';
-
-        /** The cost per click (CPC) summed for each click. */
-        const Spend = 'Spend';
-
-        /** The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal. */
-        const FunnelConversionRate = 'FunnelConversionRate';
-
-        /** The revenue optionally reported by the advertiser as a result of conversions. */
-        const Revenue = 'Revenue';
-
-        /** The return on ad spend (ROAS). */
-        const ReturnOnAdSpend = 'ReturnOnAdSpend';
+        /** The current UrlCustomParameters element of the Campaign. */
+        const CustomParameters = 'CustomParameters';
     }
 
     /**
@@ -2521,31 +2617,31 @@ namespace BingAds\Reporting
      */
     final class NegativeKeywordConflictReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Text element of a Keyword. */
+        /** The keyword text. */
         const Keyword = 'Keyword';
 
-        /** The Id element of a Keyword. */
+        /** The Bing Ads assigned identifier of a keyword. */
         const KeywordId = 'KeywordId';
 
         /** The negative keyword that conflicts with the keyword at the ad group or campaign level. */
@@ -2554,7 +2650,7 @@ namespace BingAds\Reporting
         /** The entity level where the keyword and negative keyword conflict occurs. */
         const ConflictLevel = 'ConflictLevel';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The NegativeKeywordListId element of the NegativeKeywordList Data Object. */
@@ -2571,111 +2667,6 @@ namespace BingAds\Reporting
     }
 
     /**
-     * Defines the attribute columns that you can include in the SearchCampaignChangeHistoryReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/hh912353(v=msads.90).aspx SearchCampaignChangeHistoryReportColumn Value Set
-     * 
-     * @used-by SearchCampaignChangeHistoryReportRequest
-     */
-    final class SearchCampaignChangeHistoryReportColumn
-    {
-        /** The date and time of the change. */
-        const DateTime = 'DateTime';
-
-        /** The Id element of an Account. */
-        const AccountId = 'AccountId';
-
-        /** The Name element of an Account. */
-        const AccountName = 'AccountName';
-
-        /** The Number element of an Account. */
-        const AccountNumber = 'AccountNumber';
-
-        /** The username of the user that made the change to settings within the account. */
-        const ChangedBy = 'ChangedBy';
-
-        /** The Name element of a Campaign. */
-        const CampaignName = 'CampaignName';
-
-        /** The Id element of a Campaign. */
-        const CampaignId = 'CampaignId';
-
-        /** The Name element of an AdGroup. */
-        const AdGroupName = 'AdGroupName';
-
-        /** The Id element of an AdGroup. */
-        const AdGroupId = 'AdGroupId';
-
-        /** The Title element of a MobileAd or TextAd. */
-        const AdTitle = 'AdTitle';
-
-        /** The Text element of a MobileAd or TextAd. */
-        const AdDescription = 'AdDescription';
-
-        /** The DisplayUrl element of a MobileAd or TextAd. */
-        const DisplayUrl = 'DisplayUrl';
-
-        /** The Text element of a Keyword. */
-        const Keyword = 'Keyword';
-
-        /** The value that identifies the entity that changed. */
-        const ItemChanged = 'ItemChanged';
-
-        /** Identifies the attribute or property of the entity from the ItemChanged column that changed. */
-        const AttributeChanged = 'AttributeChanged';
-
-        /** The value that indicates whether the element was added, updated, or deleted. */
-        const HowChanged = 'HowChanged';
-
-        /** The value before the change. */
-        const OldValue = 'OldValue';
-
-        /** The value after the change. */
-        const NewValue = 'NewValue';
-    }
-
-    /**
-     * Defines the types of changes to entities by which you can filter the report data.
-     * @link http://msdn.microsoft.com/en-us/library/hh912354(v=msads.90).aspx ChangeTypeReportFilter Value Set
-     * 
-     * @used-by SearchCampaignChangeHistoryReportFilter
-     */
-    final class ChangeTypeReportFilter
-    {
-        /** The report will include data for entities that have been added. */
-        const Added = 'Added';
-
-        /** The report will include data for entities that have been deleted. */
-        const Deleted = 'Deleted';
-
-        /** The report will include data for elements of entities whose values have been updated. */
-        const Changed = 'Changed';
-    }
-
-    /**
-     * Defines the types of entities by which you can filter the report data.
-     * @link http://msdn.microsoft.com/en-us/library/hh912355(v=msads.90).aspx ChangeEntityReportFilter Value Set
-     * 
-     * @used-by SearchCampaignChangeHistoryReportFilter
-     */
-    final class ChangeEntityReportFilter
-    {
-        /** The report will include data for accounts that have been added or deleted, or that have had account elements updated. */
-        const Account = 'Account';
-
-        /** The report will include data for campaigns that have been added or deleted, or that have had campaign elements updated. */
-        const Campaign = 'Campaign';
-
-        /** The report will include data for ad groups that have been added or deleted, or that have had ad group elements updated. */
-        const AdGroup = 'AdGroup';
-
-        /** The report will include data for ads that have been added or deleted, or that have had ad elements updated. */
-        const Ad = 'Ad';
-
-        /** The report will include data for keywords that have been added or deleted, or that have had keyword elements updated. */
-        const Keyword = 'Keyword';
-    }
-
-    /**
      * Defines the attributes and performance statistics columns that you can include in the AdExtensionByAdReportRequest.
      * @link http://msdn.microsoft.com/en-us/library/jj713608(v=msads.90).aspx AdExtensionByAdReportColumn Value Set
      * 
@@ -2683,34 +2674,34 @@ namespace BingAds\Reporting
      */
     final class AdExtensionByAdReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Title element of a MobileAd or TextAd. */
+        /** The ad title. */
         const AdTitle = 'AdTitle';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
         /** The type name that corresponds to the AdExtensionTypeId column. */
         const AdExtensionType = 'AdExtensionType';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
         /** The operating system of the device reported in the DeviceType column. */
@@ -2743,19 +2734,19 @@ namespace BingAds\Reporting
         /** The cost per click (CPC) summed for each click. */
         const Spend = 'Spend';
 
-        /** The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
+        /** The Bing Ads assigned identifier of an ad extension. */
         const AdExtensionId = 'AdExtensionId';
 
-        /** The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
+        /** The version attribute of an ad extension. */
         const AdExtensionVersion = 'AdExtensionVersion';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -2800,34 +2791,34 @@ namespace BingAds\Reporting
      */
     final class AdExtensionByKeywordReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Text element of a Keyword. */
+        /** The keyword text. */
         const Keyword = 'Keyword';
 
-        /** The Id element of a Keyword. */
+        /** The Bing Ads assigned identifier of a keyword. */
         const KeywordId = 'KeywordId';
 
         /** The type name that corresponds to the AdExtensionTypeId column. */
         const AdExtensionType = 'AdExtensionType';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
         /** The operating system of the device reported in the DeviceType column. */
@@ -2860,19 +2851,19 @@ namespace BingAds\Reporting
         /** The cost per click (CPC) summed for each click. */
         const Spend = 'Spend';
 
-        /** The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
+        /** The Bing Ads assigned identifier of an ad extension. */
         const AdExtensionId = 'AdExtensionId';
 
-        /** The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
+        /** The version attribute of an ad extension. */
         const AdExtensionVersion = 'AdExtensionVersion';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -2910,6 +2901,120 @@ namespace BingAds\Reporting
     }
 
     /**
+     * The AdExtensionDimensionReport is deprecated and is not supported.
+     * @link http://msdn.microsoft.com/en-us/library/jj713609(v=msads.90).aspx AdExtensionDimensionReportColumn Value Set
+     * 
+     * @used-by AdExtensionDimensionReportRequest
+     */
+    final class AdExtensionDimensionReportColumn
+    {
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
+        /** The type name that corresponds to the AdExtensionTypeId column. */
+        const AdExtensionType = 'AdExtensionType';
+
+        /** The Bing Ads assigned identifier of an ad extension. */
+        const AdExtensionId = 'AdExtensionId';
+
+        /** The version attribute of an ad extension. */
+        const AdExtensionVersion = 'AdExtensionVersion';
+
+        /** The current delivery status. */
+        const Status = 'Status';
+
+        /** Positive integer system identifiers ranging from 1 through 20, which map to properties of the ad extension. */
+        const AdExtensionPropertyId = 'AdExtensionPropertyId';
+
+        /** The human readable ad extension property value. */
+        const AdExtensionPropertyValue = 'AdExtensionPropertyValue';
+    }
+
+    /**
+     * Defines the attributes and performance statistics columns that you can include in the AudiencePerformanceReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/mt604701(v=msads.90).aspx AudiencePerformanceReportColumn Value Set
+     * 
+     * @used-by AudiencePerformanceReportRequest
+     */
+    final class AudiencePerformanceReportColumn
+    {
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
+        /** The time period of each report row. */
+        const TimePeriod = 'TimePeriod';
+
+        /** The campaign name. */
+        const CampaignName = 'CampaignName';
+
+        /** The Bing Ads assigned identifier of a campaign. */
+        const CampaignId = 'CampaignId';
+
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
+
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
+
+        /** The Bing Ads assigned identifier of an audience remarketing list. */
+        const AudienceId = 'AudienceId';
+
+        /** The audience remarketing list name. */
+        const AudienceName = 'AudienceName';
+
+        /** The status of the association between the ad group and remarketing list, which indicates whether ads are eligible to display. */
+        const AssociationStatus = 'AssociationStatus';
+
+        /** This attribute reflects the current value of your ad group's audience bid adjustment. */
+        const BidAdjustment = 'BidAdjustment';
+
+        /** This attribute reflects the current value of your ad group's audience targeting setting. */
+        const TargetingSetting = 'TargetingSetting';
+
+        /** The number of times an ad has been displayed on search results pages. */
+        const Impressions = 'Impressions';
+
+        /** The number of times that the ads in the account were clicked. */
+        const Clicks = 'Clicks';
+
+        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
+        const Ctr = 'Ctr';
+
+        /** The average cost per click (CPC). */
+        const AverageCpc = 'AverageCpc';
+
+        /** The cost per click (CPC) summed for each click. */
+        const Spend = 'Spend';
+
+        /** The average position of the ad on a webpage. */
+        const AveragePosition = 'AveragePosition';
+
+        /** The number of conversions. */
+        const Conversions = 'Conversions';
+
+        /** The conversion rate as a percentage. */
+        const ConversionRate = 'ConversionRate';
+
+        /** The cost per conversion. */
+        const CostPerConversion = 'CostPerConversion';
+
+        /** The revenue optionally reported by the advertiser as a result of conversions. */
+        const Revenue = 'Revenue';
+
+        /** The return on ad spend (ROAS). */
+        const ReturnOnAdSpend = 'ReturnOnAdSpend';
+
+        /** The revenue per conversion. */
+        const RevenuePerConversion = 'RevenuePerConversion';
+    }
+
+    /**
      * Defines the attributes and performance statistics columns that you can include in the AdExtensionDetailReportRequest.
      * @link http://msdn.microsoft.com/en-us/library/dn610365(v=msads.90).aspx AdExtensionDetailReportColumn Value Set
      * 
@@ -2917,31 +3022,31 @@ namespace BingAds\Reporting
      */
     final class AdExtensionDetailReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
-        /** The Title element of a MobileAd or TextAd. */
+        /** The ad title. */
         const AdTitle = 'AdTitle';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
         /** The type name that corresponds to the AdExtensionTypeId column. */
@@ -2950,10 +3055,10 @@ namespace BingAds\Reporting
         /** The system identifier that corresponds to the AdExtensionType column. */
         const AdExtensionTypeId = 'AdExtensionTypeId';
 
-        /** The Id element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
+        /** The Bing Ads assigned identifier of an ad extension. */
         const AdExtensionId = 'AdExtensionId';
 
-        /** The Version element of either the CallAdExtension, LocationAdExtension, ProductAdExtension, or SiteLinksAdExtension, which is inherited from the AdExtension base object. */
+        /** The version attribute of an ad extension. */
         const AdExtensionVersion = 'AdExtensionVersion';
 
         /** The human readable ad extension property value. */
@@ -2962,7 +3067,7 @@ namespace BingAds\Reporting
         /** The number of times an ad has been displayed on search results pages. */
         const Impressions = 'Impressions';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
         /** The operating system of the device reported in the DeviceType column. */
@@ -2989,7 +3094,7 @@ namespace BingAds\Reporting
         /** The average cost per click (CPC). */
         const AverageCpc = 'AverageCpc';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -3134,6 +3239,12 @@ namespace BingAds\Reporting
         /** The AdDistribution element of an AdGroup. */
         const AdDistribution = 'AdDistribution';
         const ClickSharePercent = 'ClickSharePercent';
+
+        /** The DeviceName element of a DeviceOSTargetBid. */
+        const DeviceType = 'DeviceType';
+
+        /** The Network element of an AdGroup. */
+        const Network = 'Network';
     }
 
     /**
@@ -3144,43 +3255,43 @@ namespace BingAds\Reporting
      */
     final class ProductTargetPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
         /** The name of the product target. */
         const ProductTarget = 'ProductTarget';
 
-        /** The Id element of an AdGroupCriterion. */
+        /** The Bing Ads assigned identifier of an ad group criterion. */
         const AdGroupCriterionId = 'AdGroupCriterionId';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
         /** The maximum cost per click. */
         const CurrentMaxCpc = 'CurrentMaxCpc';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -3207,28 +3318,28 @@ namespace BingAds\Reporting
         /** The cost per conversion. */
         const CostPerConversion = 'CostPerConversion';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
-        /** The Status element of a Campaign. */
+        /** The campaign status. */
         const CampaignStatus = 'CampaignStatus';
 
-        /** The AccountLifeCycleStatus element of an Account. */
+        /** The account lifecycle status. */
         const AccountStatus = 'AccountStatus';
 
-        /** The Status element of an AdGroup. */
+        /** The ad group status. */
         const AdGroupStatus = 'AdGroupStatus';
 
-        /** The Status element of a Keyword. */
+        /** The keyword status. */
         const KeywordStatus = 'KeywordStatus';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
         const DestinationUrl = 'DestinationUrl';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The match type used to deliver an ad. */
@@ -3266,54 +3377,138 @@ namespace BingAds\Reporting
     }
 
     /**
-     * Defines the attributes and performance statistics columns that you can include in the TrafficSourcesReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/gg262847(v=msads.90).aspx TrafficSourcesReportColumn Value Set
+     * Defines the attributes and performance statistics columns that you can include in the ProductDimensionPerformanceReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/dn913140(v=msads.90).aspx ProductDimensionPerformanceReportColumn Value Set
      * 
-     * @used-by TrafficSourcesReportRequest
+     * @used-by ProductDimensionPerformanceReportRequest
      */
-    final class TrafficSourcesReportColumn
+    final class ProductDimensionPerformanceReportColumn
     {
-        /** The Name element of an Account. */
-        const AccountName = 'AccountName';
-
-        /** The Number element of an Account. */
-        const AccountNumber = 'AccountNumber';
-
-        /** The Id element of an Account. */
-        const AccountId = 'AccountId';
-
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The origin of the advertising traffic, which is one of the following: */
-        const Source = 'Source';
+        /** The account name. */
+        const AccountName = 'AccountName';
 
-        /** The name of your event tracking or campaign analytics goal. */
-        const Goal = 'Goal';
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
 
-        /** The number of times that a user entered step 1 of the funnel. */
-        const Step1Count = 'Step1Count';
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
 
-        /** The number of times that a user entered step 2 of the funnel. */
-        const Step2Count = 'Step2Count';
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
 
-        /** The number of times that a user entered step 3 of the funnel. */
-        const Step3Count = 'Step3Count';
+        /** The campaign status. */
+        const CampaignStatus = 'CampaignStatus';
 
-        /** The number of times that a user entered step 4 of the funnel. */
-        const Step4Count = 'Step4Count';
+        /** The account lifecycle status. */
+        const AccountStatus = 'AccountStatus';
 
-        /** The number of times that a user entered step 5 of the funnel. */
-        const Step5Count = 'Step5Count';
+        /** The ad group status. */
+        const AdGroupStatus = 'AdGroupStatus';
+
+        /** The Network element of an AdGroup. */
+        const Network = 'Network';
+
+        /** The Bing Ads assigned identifier of an ad. */
+        const AdId = 'AdId';
+
+        /** The Bing Ads assigned identifier of a campaign. */
+        const CampaignId = 'CampaignId';
+
+        /** The campaign name. */
+        const CampaignName = 'CampaignName';
+
+        /** The account currency type. */
+        const CurrencyCode = 'CurrencyCode';
+
+        /** The device name attribute of a device OS target bid. */
+        const DeviceType = 'DeviceType';
+
+        /** The ad group language. */
+        const Language = 'Language';
+
+        /** The report will include a column that contains the unique identifier provided by a merchant for each product offer. */
+        const MerchantProductId = 'MerchantProductId';
+
+        /** The product item name. */
+        const Title = 'Title';
+
+        /** The condition of a product item. */
+        const Condition = 'Condition';
+
+        /** The product item's manufacturer, brand, or publisher. */
+        const Brand = 'Brand';
+
+        /** The different price for products in your catalog. */
+        const Price = 'Price';
+
+        /** The value of the Custom_label_0 field in your Bing Merchant Center catalog. */
+        const CustomLabel0 = 'CustomLabel0';
+
+        /** The value of the Custom_label_1 field in your Bing Merchant Center catalog. */
+        const CustomLabel1 = 'CustomLabel1';
+
+        /** The value of the Custom_label_2 field in your Bing Merchant Center catalog. */
+        const CustomLabel2 = 'CustomLabel2';
+
+        /** The value of the Custom_label_3 field in your Bing Merchant Center catalog. */
+        const CustomLabel3 = 'CustomLabel3';
+
+        /** The value of the Custom_label_4 field in your Bing Merchant Center catalog. */
+        const CustomLabel4 = 'CustomLabel4';
+
+        /** The first level value of the Product_type field in your Bing Merchant Center catalog. */
+        const ProductType1 = 'ProductType1';
+
+        /** The second level value of the Product_type field in your Bing Merchant Center catalog. */
+        const ProductType2 = 'ProductType2';
+
+        /** The third level value of the Product_type field in your Bing Merchant Center catalog. */
+        const ProductType3 = 'ProductType3';
+
+        /** The fourth level value of the Product_type field in your Bing Merchant Center catalog. */
+        const ProductType4 = 'ProductType4';
+
+        /** The fifth level value of the Product_type field in your Bing Merchant Center catalog. */
+        const ProductType5 = 'ProductType5';
+
+        /** The first level value of the Product_category field in your Bing Merchant Center catalog. */
+        const ProductCategory1 = 'ProductCategory1';
+
+        /** The second level value of the Product_category field in your Bing Merchant Center catalog. */
+        const ProductCategory2 = 'ProductCategory2';
+
+        /** The third level value of the Product_category field in your Bing Merchant Center catalog. */
+        const ProductCategory3 = 'ProductCategory3';
+
+        /** The fourth level value of the Product_category field in your Bing Merchant Center catalog. */
+        const ProductCategory4 = 'ProductCategory4';
+
+        /** The fifth level value of the Product_category field in your Bing Merchant Center catalog. */
+        const ProductCategory5 = 'ProductCategory5';
+
+        /** The number of times an ad has been displayed on search results pages. */
+        const Impressions = 'Impressions';
+
+        /** The number of times that the ads in the account were clicked. */
+        const Clicks = 'Clicks';
+
+        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
+        const Ctr = 'Ctr';
+
+        /** The average cost per click (CPC). */
+        const AverageCpc = 'AverageCpc';
+
+        /** The cost per click (CPC) summed for each click. */
+        const Spend = 'Spend';
 
         /** The number of conversions. */
         const Conversions = 'Conversions';
 
-        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
-        const Assists = 'Assists';
-
-        /** The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal. */
-        const FunnelConversionRate = 'FunnelConversionRate';
+        /** The conversion rate as a percentage. */
+        const ConversionRate = 'ConversionRate';
 
         /** The revenue optionally reported by the advertiser as a result of conversions. */
         const Revenue = 'Revenue';
@@ -3330,52 +3525,52 @@ namespace BingAds\Reporting
      */
     final class ProductPartitionPerformanceReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Number element of an Account. */
+        /** The Bing Ads assigned number of an account. */
         const AccountNumber = 'AccountNumber';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
         /** The time period of each report row. */
         const TimePeriod = 'TimePeriod';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
 
         /** The forward slash ('/') delimited list of ProductCondition, reported as Operand = Attribute. */
         const ProductGroup = 'ProductGroup';
 
-        /** The Id element of an AdGroupCriterion. */
+        /** The Bing Ads assigned identifier of an ad group criterion, or product group in the context of a Bing Shopping campaign. */
         const AdGroupCriterionId = 'AdGroupCriterionId';
 
         /** The PartitionType element of a ProductPartition. */
         const PartitionType = 'PartitionType';
 
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
+        /** The Bing Ads assigned identifier of an ad. */
         const AdId = 'AdId';
 
         /** The maximum cost per click. */
         const CurrentMaxCpc = 'CurrentMaxCpc';
 
-        /** The CurrencyType element of an Account. */
+        /** The account currency type. */
         const CurrencyCode = 'CurrencyCode';
 
         /** The match type used to deliver an ad. */
         const DeliveredMatchType = 'DeliveredMatchType';
 
-        /** The MatchType element of a Keyword. */
+        /** The keyword bid match type. */
         const BidMatchType = 'BidMatchType';
 
         /** The number of times an ad has been displayed on search results pages. */
@@ -3402,22 +3597,142 @@ namespace BingAds\Reporting
         /** The cost per conversion. */
         const CostPerConversion = 'CostPerConversion';
 
-        /** The DeviceName element of a DeviceOSTargetBid. */
+        /** The device name attribute of a device OS target bid. */
         const DeviceType = 'DeviceType';
 
-        /** The Language element of an AdGroup. */
+        /** The ad group language. */
         const Language = 'Language';
 
-        /** The Status element of a Campaign. */
+        /** The campaign status. */
         const CampaignStatus = 'CampaignStatus';
 
-        /** The AccountLifeCycleStatus element of an Account. */
+        /** The account lifecycle status. */
         const AccountStatus = 'AccountStatus';
 
-        /** The Status element of an AdGroup. */
+        /** The ad group status. */
         const AdGroupStatus = 'AdGroupStatus';
 
-        /** The DestinationUrl element of the TextAd, MobileAd, Keyword, or BiddableAdGroupCriterion. */
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
+        const DestinationUrl = 'DestinationUrl';
+
+        /** The Network element of an AdGroup. */
+        const Network = 'Network';
+
+        /** The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. */
+        const TopVsOther = 'TopVsOther';
+
+        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
+        const Assists = 'Assists';
+
+        /** Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. */
+        const ExtendedCost = 'ExtendedCost';
+
+        /** The revenue optionally reported by the advertiser as a result of conversions. */
+        const Revenue = 'Revenue';
+
+        /** The cost per assist. */
+        const CostPerAssist = 'CostPerAssist';
+
+        /** The revenue per conversion. */
+        const RevenuePerConversion = 'RevenuePerConversion';
+
+        /** The revenue per assist. */
+        const RevenuePerAssist = 'RevenuePerAssist';
+    }
+
+    /**
+     * Defines the attributes and performance statistics columns that you can include in the ProductPartitionUnitPerformanceReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/mt592967(v=msads.90).aspx ProductPartitionUnitPerformanceReportColumn Value Set
+     * 
+     * @used-by ProductPartitionUnitPerformanceReportRequest
+     */
+    final class ProductPartitionUnitPerformanceReportColumn
+    {
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
+        /** The time period of each report row. */
+        const TimePeriod = 'TimePeriod';
+
+        /** The campaign name. */
+        const CampaignName = 'CampaignName';
+
+        /** The Bing Ads assigned identifier of a campaign. */
+        const CampaignId = 'CampaignId';
+
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
+
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
+
+        /** The forward slash ('/') delimited list of ProductCondition, reported as Operand = Attribute. */
+        const ProductGroup = 'ProductGroup';
+
+        /** The Bing Ads assigned identifier of an ad group criterion, or product group in the context of a Bing Shopping campaign. */
+        const AdGroupCriterionId = 'AdGroupCriterionId';
+
+        /** The Bing Ads assigned identifier of an ad. */
+        const AdId = 'AdId';
+
+        /** The maximum cost per click. */
+        const CurrentMaxCpc = 'CurrentMaxCpc';
+
+        /** The account currency type. */
+        const CurrencyCode = 'CurrencyCode';
+
+        /** The match type used to deliver an ad. */
+        const DeliveredMatchType = 'DeliveredMatchType';
+
+        /** The keyword bid match type. */
+        const BidMatchType = 'BidMatchType';
+
+        /** The number of times an ad has been displayed on search results pages. */
+        const Impressions = 'Impressions';
+
+        /** The number of times that the ads in the account were clicked. */
+        const Clicks = 'Clicks';
+
+        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
+        const Ctr = 'Ctr';
+
+        /** The average cost per click (CPC). */
+        const AverageCpc = 'AverageCpc';
+
+        /** The cost per click (CPC) summed for each click. */
+        const Spend = 'Spend';
+
+        /** The number of conversions. */
+        const Conversions = 'Conversions';
+
+        /** The conversion rate as a percentage. */
+        const ConversionRate = 'ConversionRate';
+
+        /** The cost per conversion. */
+        const CostPerConversion = 'CostPerConversion';
+
+        /** The device name attribute of a device OS target bid. */
+        const DeviceType = 'DeviceType';
+
+        /** The ad group language. */
+        const Language = 'Language';
+
+        /** The campaign status. */
+        const CampaignStatus = 'CampaignStatus';
+
+        /** The account lifecycle status. */
+        const AccountStatus = 'AccountStatus';
+
+        /** The ad group status. */
+        const AdGroupStatus = 'AdGroupStatus';
+
+        /** The destination URL attribute of the ad, keyword, or ad group criterion. */
         const DestinationUrl = 'DestinationUrl';
 
         /** The Network element of an AdGroup. */
@@ -3453,13 +3768,13 @@ namespace BingAds\Reporting
      */
     final class CallDetailReportColumn
     {
-        /** The Name element of an Account. */
+        /** The account name. */
         const AccountName = 'AccountName';
 
-        /** The Name element of a Campaign. */
+        /** The campaign name. */
         const CampaignName = 'CampaignName';
 
-        /** The Name element of an AdGroup. */
+        /** The ad group name. */
         const AdGroupName = 'AdGroupName';
 
         /** The start time of the call. */
@@ -3471,7 +3786,7 @@ namespace BingAds\Reporting
         /** The duration of each forwarded call that originated from a call ad extension. */
         const Duration = 'Duration';
 
-        /** The status of the call. */
+        /** The call status. */
         const CallStatus = 'CallStatus';
 
         /** The total cost for completed calls to your tracked number. */
@@ -3489,333 +3804,14 @@ namespace BingAds\Reporting
         /** The state used to deliver the ad. */
         const State = 'State';
 
-        /** The Id element of an Account. */
+        /** The Bing Ads assigned identifier of an account. */
         const AccountId = 'AccountId';
 
-        /** The Id element of a Campaign. */
+        /** The Bing Ads assigned identifier of a campaign. */
         const CampaignId = 'CampaignId';
 
-        /** The Id element of an AdGroup. */
+        /** The Bing Ads assigned identifier of an ad group. */
         const AdGroupId = 'AdGroupId';
-    }
-
-    /**
-     * Defines the attributes and performance statistics columns that you can include in the ProductOfferPerformanceReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/dn743720(v=msads.90).aspx ProductOfferPerformanceReportColumn Value Set
-     * 
-     * @used-by ProductOfferPerformanceReportRequest
-     */
-    final class ProductOfferPerformanceReportColumn
-    {
-        /** The time period of each report row. */
-        const TimePeriod = 'TimePeriod';
-
-        /** The Name element of an Account. */
-        const AccountName = 'AccountName';
-
-        /** The Number element of an Account. */
-        const AccountNumber = 'AccountNumber';
-
-        /** The Name element of an AdGroup. */
-        const AdGroupName = 'AdGroupName';
-
-        /** The Id element of an AdGroup. */
-        const AdGroupId = 'AdGroupId';
-
-        /** The Id element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
-        const AdId = 'AdId';
-
-        /** The Status element of a MobileAd, ProductAd, or TextAd, which is inherited from the Ad base object. */
-        const AdStatus = 'AdStatus';
-
-        /** The Name element of a Campaign. */
-        const CampaignName = 'CampaignName';
-
-        /** The CurrencyType element of an Account. */
-        const CurrencyCode = 'CurrencyCode';
-
-        /** The DeviceName element of a DeviceOSTargetBid. */
-        const DeviceType = 'DeviceType';
-
-        /** The Language element of an AdGroup. */
-        const Language = 'Language';
-
-        /** The report will include a column that contains the unique identifier provided by a merchant for each product offer. */
-        const MerchantProductId = 'MerchantProductId';
-
-        /** The report will include a column that contains the merchant or store name that offers the product. */
-        const SellerName = 'SellerName';
-
-        /** The number of times an ad has been displayed on search results pages. */
-        const Impressions = 'Impressions';
-
-        /** The number of times that the ads in the account were clicked. */
-        const Clicks = 'Clicks';
-
-        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
-        const Ctr = 'Ctr';
-
-        /** The average cost per click (CPC). */
-        const AverageCpc = 'AverageCpc';
-
-        /** The cost per click (CPC) summed for each click. */
-        const Spend = 'Spend';
-
-        /** The average of the cost-per-thousand impressions of the ads. */
-        const AverageCpm = 'AverageCpm';
-    }
-
-    /**
-     * Defines the attributes and performance statistics columns that you can include in the GeoLocationPerformanceReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/dn743762(v=msads.90).aspx GeoLocationPerformanceReportColumn Value Set
-     * 
-     * @used-by GeoLocationPerformanceReportRequest
-     */
-    final class GeoLocationPerformanceReportColumn
-    {
-        /** The Name element of an Account. */
-        const AccountName = 'AccountName';
-
-        /** The Number element of an Account. */
-        const AccountNumber = 'AccountNumber';
-
-        /** The Id element of an Account. */
-        const AccountId = 'AccountId';
-
-        /** The time period of each report row. */
-        const TimePeriod = 'TimePeriod';
-
-        /** The Name element of a Campaign. */
-        const CampaignName = 'CampaignName';
-
-        /** The Id element of a Campaign. */
-        const CampaignId = 'CampaignId';
-
-        /** The Name element of an AdGroup. */
-        const AdGroupName = 'AdGroupName';
-
-        /** The Id element of an AdGroup. */
-        const AdGroupId = 'AdGroupId';
-
-        /** The country used to deliver the ad. */
-        const Country = 'Country';
-
-        /** The state used to deliver the ad. */
-        const State = 'State';
-
-        /** The metro area used to deliver the ad. */
-        const MetroArea = 'MetroArea';
-
-        /** The city used to deliver the ad. */
-        const City = 'City';
-
-        /** The CurrencyType element of an Account. */
-        const CurrencyCode = 'CurrencyCode';
-
-        /** The AdDistribution element of an AdGroup. */
-        const AdDistribution = 'AdDistribution';
-
-        /** The number of times an ad has been displayed on search results pages. */
-        const Impressions = 'Impressions';
-
-        /** The number of times that the ads in the account were clicked. */
-        const Clicks = 'Clicks';
-
-        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
-        const Ctr = 'Ctr';
-
-        /** The average cost per click (CPC). */
-        const AverageCpc = 'AverageCpc';
-
-        /** The cost per click (CPC) summed for each click. */
-        const Spend = 'Spend';
-
-        /** The average position of the ad on a webpage. */
-        const AveragePosition = 'AveragePosition';
-
-        /** The average of the cost-per-thousand impressions of the ads. */
-        const AverageCpm = 'AverageCpm';
-
-        /** The Name element of a RadiusTargetBid. */
-        const ProximityTargetLocation = 'ProximityTargetLocation';
-
-        /** The Radius element of a RadiusTargetBid. */
-        const Radius = 'Radius';
-
-        /** The Language element of an AdGroup. */
-        const Language = 'Language';
-
-        /** The MatchType element of a Keyword. */
-        const BidMatchType = 'BidMatchType';
-
-        /** The match type used to deliver an ad. */
-        const DeliveredMatchType = 'DeliveredMatchType';
-
-        /** The Network element of an AdGroup. */
-        const Network = 'Network';
-
-        /** The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. */
-        const TopVsOther = 'TopVsOther';
-
-        /** The DeviceName element of a DeviceOSTargetBid. */
-        const DeviceType = 'DeviceType';
-
-        /** The operating system of the device reported in the DeviceType column. */
-        const DeviceOS = 'DeviceOS';
-
-        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
-        const Assists = 'Assists';
-
-        /** The number of conversions. */
-        const Conversions = 'Conversions';
-
-        /** The conversion rate as a percentage. */
-        const ConversionRate = 'ConversionRate';
-
-        /** Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. */
-        const ExtendedCost = 'ExtendedCost';
-
-        /** The revenue optionally reported by the advertiser as a result of conversions. */
-        const Revenue = 'Revenue';
-
-        /** The return on ad spend (ROAS). */
-        const ReturnOnAdSpend = 'ReturnOnAdSpend';
-
-        /** The cost per conversion. */
-        const CostPerConversion = 'CostPerConversion';
-
-        /** The cost per assist. */
-        const CostPerAssist = 'CostPerAssist';
-
-        /** The revenue per conversion. */
-        const RevenuePerConversion = 'RevenuePerConversion';
-
-        /** The revenue per assist. */
-        const RevenuePerAssist = 'RevenuePerAssist';
-
-        /** The location type used to deliver ads. */
-        const LocationType = 'LocationType';
-
-        /** The most specific location used to deliver ads. */
-        const MostSpecificLocation = 'MostSpecificLocation';
-    }
-
-    final class BrandZonePerformanceReportColumn
-    {
-        const AccountName = 'AccountName';
-        const AccountNumber = 'AccountNumber';
-        const AccountId = 'AccountId';
-        const TimePeriod = 'TimePeriod';
-        const CampaignName = 'CampaignName';
-        const CampaignId = 'CampaignId';
-        const AdGroupName = 'AdGroupName';
-        const AdGroupId = 'AdGroupId';
-        const Keyword = 'Keyword';
-        const KeywordId = 'KeywordId';
-        const AdId = 'AdId';
-        const AdTitle = 'AdTitle';
-        const Impressions = 'Impressions';
-        const Clicks = 'Clicks';
-        const Ctr = 'Ctr';
-        const Spend = 'Spend';
-        const DeviceType = 'DeviceType';
-        const Language = 'Language';
-        const CampaignStatus = 'CampaignStatus';
-        const AccountStatus = 'AccountStatus';
-        const AdGroupStatus = 'AdGroupStatus';
-        const KeywordStatus = 'KeywordStatus';
-        const DisplayPosition = 'DisplayPosition';
-        const AssetId = 'AssetId';
-        const ComponentName = 'ComponentName';
-        const Network = 'Network';
-        const PricingModel = 'PricingModel';
-        const DeviceOS = 'DeviceOS';
-        const ComponentTitle = 'ComponentTitle';
-        const ComponentClicks = 'ComponentClicks';
-        const ComponentTotalClicks = 'ComponentTotalClicks';
-        const ComponentCTR = 'ComponentCTR';
-        const ComponentNonBillableClicks = 'ComponentNonBillableClicks';
-    }
-
-    /**
-     * Defines the attributes and performance statistics columns that you can include in the GoalsAndFunnelsReportRequest.
-     * @link http://msdn.microsoft.com/en-us/library/gg262845(v=msads.90).aspx GoalsAndFunnelsReportColumn Value Set
-     * 
-     * @used-by GoalsAndFunnelsReportRequest
-     */
-    final class GoalsAndFunnelsReportColumn
-    {
-        /** The Name element of an Account. */
-        const AccountName = 'AccountName';
-
-        /** The Number element of an Account. */
-        const AccountNumber = 'AccountNumber';
-
-        /** The Id element of an Account. */
-        const AccountId = 'AccountId';
-
-        /** The time period of each report row. */
-        const TimePeriod = 'TimePeriod';
-
-        /** The Name element of a Campaign. */
-        const CampaignName = 'CampaignName';
-
-        /** The Id element of a Campaign. */
-        const CampaignId = 'CampaignId';
-
-        /** The Name element of an AdGroup. */
-        const AdGroupName = 'AdGroupName';
-
-        /** The Id element of an AdGroup. */
-        const AdGroupId = 'AdGroupId';
-
-        /** The Text element of a Keyword. */
-        const Keyword = 'Keyword';
-
-        /** The Id element of a Keyword. */
-        const KeywordId = 'KeywordId';
-
-        /** The name of your event tracking or campaign analytics goal. */
-        const Goal = 'Goal';
-
-        /** The number of times that a user entered step 1 of the funnel. */
-        const Step1Count = 'Step1Count';
-
-        /** The number of times that a user entered step 2 of the funnel. */
-        const Step2Count = 'Step2Count';
-
-        /** The number of times that a user entered step 3 of the funnel. */
-        const Step3Count = 'Step3Count';
-
-        /** The number of times that a user entered step 4 of the funnel. */
-        const Step4Count = 'Step4Count';
-
-        /** The number of times that a user entered step 5 of the funnel. */
-        const Step5Count = 'Step5Count';
-
-        /** The number of conversions. */
-        const Conversions = 'Conversions';
-
-        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
-        const Assists = 'Assists';
-
-        /** The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal. */
-        const FunnelConversionRate = 'FunnelConversionRate';
-
-        /** The cost per click (CPC) summed for each click. */
-        const Spend = 'Spend';
-
-        /** The revenue optionally reported by the advertiser as a result of conversions. */
-        const Revenue = 'Revenue';
-
-        /** The return on ad spend (ROAS). */
-        const ReturnOnAdSpend = 'ReturnOnAdSpend';
-
-        /** Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. */
-        const ExtendedCost = 'ExtendedCost';
-
-        /** This is a unique ID that identifies the goal. */
-        const GoalId = 'GoalId';
     }
 
     /**
@@ -3987,6 +3983,334 @@ namespace BingAds\Reporting
     }
 
     /**
+     * Defines the attributes and performance statistics columns that you can include in the GeoLocationPerformanceReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/dn743762(v=msads.90).aspx GeoLocationPerformanceReportColumn Value Set
+     * 
+     * @used-by GeoLocationPerformanceReportRequest
+     */
+    final class GeoLocationPerformanceReportColumn
+    {
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
+        /** The time period of each report row. */
+        const TimePeriod = 'TimePeriod';
+
+        /** The campaign name. */
+        const CampaignName = 'CampaignName';
+
+        /** The Bing Ads assigned identifier of a campaign. */
+        const CampaignId = 'CampaignId';
+
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
+
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
+
+        /** The country used to deliver the ad. */
+        const Country = 'Country';
+
+        /** The state used to deliver the ad. */
+        const State = 'State';
+
+        /** The metro area used to deliver the ad. */
+        const MetroArea = 'MetroArea';
+
+        /** The city used to deliver the ad. */
+        const City = 'City';
+
+        /** The account currency type. */
+        const CurrencyCode = 'CurrencyCode';
+
+        /** The ad distribution attribute of an ad group. */
+        const AdDistribution = 'AdDistribution';
+
+        /** The number of times an ad has been displayed on search results pages. */
+        const Impressions = 'Impressions';
+
+        /** The number of times that the ads in the account were clicked. */
+        const Clicks = 'Clicks';
+
+        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
+        const Ctr = 'Ctr';
+
+        /** The average cost per click (CPC). */
+        const AverageCpc = 'AverageCpc';
+
+        /** The cost per click (CPC) summed for each click. */
+        const Spend = 'Spend';
+
+        /** The average position of the ad on a webpage. */
+        const AveragePosition = 'AveragePosition';
+
+        /** The average of the cost-per-thousand impressions of the ads. */
+        const AverageCpm = 'AverageCpm';
+
+        /** The Name element of a RadiusTargetBid. */
+        const ProximityTargetLocation = 'ProximityTargetLocation';
+
+        /** The Radius element of a RadiusTargetBid. */
+        const Radius = 'Radius';
+
+        /** The ad group language. */
+        const Language = 'Language';
+
+        /** The keyword bid match type. */
+        const BidMatchType = 'BidMatchType';
+
+        /** The match type used to deliver an ad. */
+        const DeliveredMatchType = 'DeliveredMatchType';
+
+        /** The Network element of an AdGroup. */
+        const Network = 'Network';
+
+        /** The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere. */
+        const TopVsOther = 'TopVsOther';
+
+        /** The device name attribute of a device OS target bid. */
+        const DeviceType = 'DeviceType';
+
+        /** The operating system of the device reported in the DeviceType column. */
+        const DeviceOS = 'DeviceOS';
+
+        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
+        const Assists = 'Assists';
+
+        /** The number of conversions. */
+        const Conversions = 'Conversions';
+
+        /** The conversion rate as a percentage. */
+        const ConversionRate = 'ConversionRate';
+
+        /** Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping. */
+        const ExtendedCost = 'ExtendedCost';
+
+        /** The revenue optionally reported by the advertiser as a result of conversions. */
+        const Revenue = 'Revenue';
+
+        /** The return on ad spend (ROAS). */
+        const ReturnOnAdSpend = 'ReturnOnAdSpend';
+
+        /** The cost per conversion. */
+        const CostPerConversion = 'CostPerConversion';
+
+        /** The cost per assist. */
+        const CostPerAssist = 'CostPerAssist';
+
+        /** The revenue per conversion. */
+        const RevenuePerConversion = 'RevenuePerConversion';
+
+        /** The revenue per assist. */
+        const RevenuePerAssist = 'RevenuePerAssist';
+
+        /** The location type used to deliver ads. */
+        const LocationType = 'LocationType';
+
+        /** The most specific location used to deliver ads. */
+        const MostSpecificLocation = 'MostSpecificLocation';
+    }
+
+    final class BrandZonePerformanceReportColumn
+    {
+        const AccountName = 'AccountName';
+        const AccountNumber = 'AccountNumber';
+        const AccountId = 'AccountId';
+        const TimePeriod = 'TimePeriod';
+        const CampaignName = 'CampaignName';
+        const CampaignId = 'CampaignId';
+        const AdGroupName = 'AdGroupName';
+        const AdGroupId = 'AdGroupId';
+        const Keyword = 'Keyword';
+        const KeywordId = 'KeywordId';
+        const AdId = 'AdId';
+        const AdTitle = 'AdTitle';
+        const Impressions = 'Impressions';
+        const Clicks = 'Clicks';
+        const Ctr = 'Ctr';
+        const Spend = 'Spend';
+        const DeviceType = 'DeviceType';
+        const Language = 'Language';
+        const CampaignStatus = 'CampaignStatus';
+        const AccountStatus = 'AccountStatus';
+        const AdGroupStatus = 'AdGroupStatus';
+        const KeywordStatus = 'KeywordStatus';
+        const DisplayPosition = 'DisplayPosition';
+        const AssetId = 'AssetId';
+        const ComponentName = 'ComponentName';
+        const Network = 'Network';
+        const PricingModel = 'PricingModel';
+        const DeviceOS = 'DeviceOS';
+        const ComponentTitle = 'ComponentTitle';
+        const ComponentClicks = 'ComponentClicks';
+        const ComponentTotalClicks = 'ComponentTotalClicks';
+        const ComponentCTR = 'ComponentCTR';
+        const ComponentNonBillableClicks = 'ComponentNonBillableClicks';
+    }
+
+    /**
+     * Defines the attributes and performance statistics columns that you can include in the TacticChannelReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/gg262851(v=msads.90).aspx TacticChannelReportColumn Value Set
+     * 
+     * @used-by TacticChannelReportRequest
+     */
+    final class TacticChannelReportColumn
+    {
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The Bing Ads assigned identifier of an account. */
+        const AccountId = 'AccountId';
+
+        /** The time period of each report row. */
+        const TimePeriod = 'TimePeriod';
+
+        /** The name of the advertising tactic. */
+        const Tactic = 'Tactic';
+
+        /** The name of the channel provider that displayed the ads. */
+        const Channel = 'Channel';
+
+        /** The name of the campaign that you defined on a paid search provider other than Bing Ads. */
+        const ThirdPartyCampaign = 'ThirdPartyCampaign';
+
+        /** The name of the ad group that you defined on a paid search provider other than Bing Ads. */
+        const ThirdPartyAdGroup = 'ThirdPartyAdGroup';
+
+        /** The keyword to track that you defined on a paid search provider other than Bing Ads. */
+        const ThirdPartyTerm = 'ThirdPartyTerm';
+
+        /** The campaign name. */
+        const CampaignName = 'CampaignName';
+
+        /** The Bing Ads assigned identifier of a campaign. */
+        const CampaignId = 'CampaignId';
+
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
+
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
+
+        /** The keyword text. */
+        const Keyword = 'Keyword';
+
+        /** The Bing Ads assigned identifier of a keyword. */
+        const KeywordId = 'KeywordId';
+
+        /** The name of your event tracking or campaign analytics goal. */
+        const Goal = 'Goal';
+
+        /** The number of times that a user entered step 1 of the funnel. */
+        const Step1Count = 'Step1Count';
+
+        /** The number of times that a user entered step 2 of the funnel. */
+        const Step2Count = 'Step2Count';
+
+        /** The number of times that a user entered step 3 of the funnel. */
+        const Step3Count = 'Step3Count';
+
+        /** The number of times that a user entered step 4 of the funnel. */
+        const Step4Count = 'Step4Count';
+
+        /** The number of times that a user entered step 5 of the funnel. */
+        const Step5Count = 'Step5Count';
+
+        /** The number of conversions. */
+        const Conversions = 'Conversions';
+
+        /** The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad. */
+        const Assists = 'Assists';
+
+        /** The cost per click (CPC) summed for each click. */
+        const Spend = 'Spend';
+
+        /** The funnel conversion rate is the percent of conversions completed by users who at minimum visited the webpage corresponding to step 1 of your goal. */
+        const FunnelConversionRate = 'FunnelConversionRate';
+
+        /** The revenue optionally reported by the advertiser as a result of conversions. */
+        const Revenue = 'Revenue';
+
+        /** The return on ad spend (ROAS). */
+        const ReturnOnAdSpend = 'ReturnOnAdSpend';
+    }
+
+    /**
+     * Defines the attributes and performance statistics columns that you can include in the ProductOfferPerformanceReportRequest.
+     * @link http://msdn.microsoft.com/en-us/library/dn743720(v=msads.90).aspx ProductOfferPerformanceReportColumn Value Set
+     * 
+     * @used-by ProductOfferPerformanceReportRequest
+     */
+    final class ProductOfferPerformanceReportColumn
+    {
+        /** The time period of each report row. */
+        const TimePeriod = 'TimePeriod';
+
+        /** The account name. */
+        const AccountName = 'AccountName';
+
+        /** The Bing Ads assigned number of an account. */
+        const AccountNumber = 'AccountNumber';
+
+        /** The ad group name. */
+        const AdGroupName = 'AdGroupName';
+
+        /** The Bing Ads assigned identifier of an ad group. */
+        const AdGroupId = 'AdGroupId';
+
+        /** The Bing Ads assigned identifier of an ad. */
+        const AdId = 'AdId';
+
+        /** The ad status. */
+        const AdStatus = 'AdStatus';
+
+        /** The campaign name. */
+        const CampaignName = 'CampaignName';
+
+        /** The account currency type. */
+        const CurrencyCode = 'CurrencyCode';
+
+        /** The device name attribute of a device OS target bid. */
+        const DeviceType = 'DeviceType';
+
+        /** The ad group language. */
+        const Language = 'Language';
+
+        /** The report will include a column that contains the unique identifier provided by a merchant for each product offer. */
+        const MerchantProductId = 'MerchantProductId';
+
+        /** The report will include a column that contains the merchant or store name that offers the product. */
+        const SellerName = 'SellerName';
+
+        /** The number of times an ad has been displayed on search results pages. */
+        const Impressions = 'Impressions';
+
+        /** The number of times that the ads in the account were clicked. */
+        const Clicks = 'Clicks';
+
+        /** The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions). */
+        const Ctr = 'Ctr';
+
+        /** The average cost per click (CPC). */
+        const AverageCpc = 'AverageCpc';
+
+        /** The cost per click (CPC) summed for each click. */
+        const Spend = 'Spend';
+
+        /** The average of the cost-per-thousand impressions of the ads. */
+        const AverageCpm = 'AverageCpm';
+    }
+
+    /**
      * Defines the status of a report.
      * @link http://msdn.microsoft.com/en-us/library/bb671578(v=msads.90).aspx ReportRequestStatusType Value Set
      * 
@@ -4142,6 +4466,7 @@ namespace BingAds\Reporting
      * @used-by AdGroupPerformanceReportRequest
      * @used-by AdPerformanceReportRequest
      * @used-by AgeGenderDemographicReportRequest
+     * @used-by AudiencePerformanceReportRequest
      * @used-by BrandZonePerformanceReportRequest
      * @used-by CallDetailReportRequest
      * @used-by ConversionPerformanceReportRequest
@@ -4154,6 +4479,7 @@ namespace BingAds\Reporting
      * @used-by ProductDimensionPerformanceReportRequest
      * @used-by ProductOfferPerformanceReportRequest
      * @used-by ProductPartitionPerformanceReportRequest
+     * @used-by ProductPartitionUnitPerformanceReportRequest
      * @used-by ProductTargetPerformanceReportRequest
      * @used-by PublisherUsagePerformanceReportRequest
      * @used-by RichAdComponentPerformanceReportRequest
@@ -4877,6 +5203,42 @@ namespace BingAds\Reporting
     }
 
     /**
+     * Defines an audience performance report request.
+     * @link http://msdn.microsoft.com/en-us/library/mt604702(v=msads.90).aspx AudiencePerformanceReportRequest Data Object
+     * 
+     * @uses ReportAggregation
+     * @uses AudiencePerformanceReportColumn
+     * @uses AccountThroughAdGroupReportScope
+     * @uses ReportTime
+     */
+    final class AudiencePerformanceReportRequest extends ReportRequest
+    {
+        /**
+         * The type of aggregation to use to aggregate the report data.
+         * @var ReportAggregation
+         */
+        public $Aggregation;
+
+        /**
+         * The list of attributes and performance statistics to include in the report.
+         * @var AudiencePerformanceReportColumn[]
+         */
+        public $Columns;
+
+        /**
+         * The scope of the report.
+         * @var AccountThroughAdGroupReportScope
+         */
+        public $Scope;
+
+        /**
+         * The time period to use for the report.
+         * @var ReportTime
+         */
+        public $Time;
+    }
+
+    /**
      * Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
      * @link http://msdn.microsoft.com/en-us/library/dn169134(v=msads.90).aspx BatchError Data Object
      * 
@@ -5448,6 +5810,8 @@ namespace BingAds\Reporting
      * @link http://msdn.microsoft.com/en-us/library/gg262854(v=msads.90).aspx GoalsAndFunnelsReportFilter Data Object
      * 
      * @uses AdDistributionReportFilter
+     * @uses DeviceOSReportFilter
+     * @uses DeviceTypeReportFilter
      * @used-by GoalsAndFunnelsReportRequest
      */
     final class GoalsAndFunnelsReportFilter
@@ -5457,6 +5821,18 @@ namespace BingAds\Reporting
          * @var AdDistributionReportFilter
          */
         public $AdDistribution;
+
+        /**
+         * The report will include data where the ad is displayed on the specified device operating systems.
+         * @var DeviceOSReportFilter
+         */
+        public $DeviceOS;
+
+        /**
+         * The report will include data where the ad is displayed on the specified device types.
+         * @var DeviceTypeReportFilter
+         */
+        public $DeviceType;
 
         /**
          * The report will include data for only the specified goals.
@@ -5918,6 +6294,71 @@ namespace BingAds\Reporting
     }
 
     /**
+     * Defines the criteria to use to filter the product partition performance report data.
+     * @link http://msdn.microsoft.com/en-us/library/mt592961(v=msads.90).aspx ProductPartitionUnitPerformanceReportFilter Data Object
+     * 
+     * @uses DeviceTypeReportFilter
+     * @used-by ProductPartitionUnitPerformanceReportRequest
+     */
+    final class ProductPartitionUnitPerformanceReportFilter
+    {
+        /**
+         * The report will include data for only the specified types of devices on which the ad is displayed.
+         * @var DeviceTypeReportFilter
+         */
+        public $DeviceType;
+
+        /**
+         * The report will include data for only websites that used the specified languages.
+         * @var string[]
+         */
+        public $LanguageCode;
+    }
+
+    /**
+     * Defines a product partition unit performance report request that aggregates the performance data by product partition unit for a specified time period.
+     * @link http://msdn.microsoft.com/en-us/library/mt592960(v=msads.90).aspx ProductPartitionUnitPerformanceReportRequest Data Object
+     * 
+     * @uses ReportAggregation
+     * @uses ProductPartitionUnitPerformanceReportColumn
+     * @uses ProductPartitionUnitPerformanceReportFilter
+     * @uses AccountThroughAdGroupReportScope
+     * @uses ReportTime
+     */
+    final class ProductPartitionUnitPerformanceReportRequest extends ReportRequest
+    {
+        /**
+         * The type of aggregation to use to aggregate the report data.
+         * @var ReportAggregation
+         */
+        public $Aggregation;
+
+        /**
+         * The list of attributes and performance statistics to include in the report.
+         * @var ProductPartitionUnitPerformanceReportColumn[]
+         */
+        public $Columns;
+
+        /**
+         * The filter information to use to filter the report data.
+         * @var ProductPartitionUnitPerformanceReportFilter
+         */
+        public $Filter;
+
+        /**
+         * The scope of the report.
+         * @var AccountThroughAdGroupReportScope
+         */
+        public $Scope;
+
+        /**
+         * The time period to use for the report.
+         * @var ReportTime
+         */
+        public $Time;
+    }
+
+    /**
      * Defines the criteria to use to filter the product target performance report data.
      * @link http://msdn.microsoft.com/en-us/library/dn195847(v=msads.90).aspx ProductTargetPerformanceReportFilter Data Object
      * 
@@ -6090,6 +6531,7 @@ namespace BingAds\Reporting
      * @used-by AdGroupPerformanceReportRequest
      * @used-by AdPerformanceReportRequest
      * @used-by AgeGenderDemographicReportRequest
+     * @used-by AudiencePerformanceReportRequest
      * @used-by BrandZonePerformanceReportRequest
      * @used-by CallDetailReportRequest
      * @used-by CampaignPerformanceReportRequest
@@ -6102,6 +6544,7 @@ namespace BingAds\Reporting
      * @used-by ProductDimensionPerformanceReportRequest
      * @used-by ProductOfferPerformanceReportRequest
      * @used-by ProductPartitionPerformanceReportRequest
+     * @used-by ProductPartitionUnitPerformanceReportRequest
      * @used-by ProductTargetPerformanceReportRequest
      * @used-by PublisherUsagePerformanceReportRequest
      * @used-by RichAdComponentPerformanceReportRequest
@@ -6370,6 +6813,7 @@ namespace BingAds\Reporting
      * @uses AdDistributionReportFilter
      * @uses BidMatchTypeReportFilter
      * @uses DeliveredMatchTypeReportFilter
+     * @uses DeviceTypeReportFilter
      * @used-by ShareOfVoiceReportRequest
      */
     final class ShareOfVoiceReportFilter
@@ -6391,6 +6835,12 @@ namespace BingAds\Reporting
          * @var DeliveredMatchTypeReportFilter
          */
         public $DeliveredMatchType;
+
+        /**
+         * The report will include data for only the specified types of devices on which the ad is displayed.
+         * @var DeviceTypeReportFilter
+         */
+        public $DeviceType;
 
         /**
          * The report will include data for only the specified keywords.
@@ -6682,10 +7132,6 @@ namespace BingAds\Reporting
      */
     final class PollGenerateReportRequest
     {
-        /**
-         * The identifier of the report request.
-         * @var string
-         */
         public $ReportRequestId;
     }
 
@@ -6698,10 +7144,6 @@ namespace BingAds\Reporting
      */
     final class PollGenerateReportResponse
     {
-        /**
-         * Contains the status of the report request and the download URL.
-         * @var ReportRequestStatus
-         */
         public $ReportRequestStatus;
     }
 
@@ -6714,10 +7156,6 @@ namespace BingAds\Reporting
      */
     final class SubmitGenerateReportRequest
     {
-        /**
-         * The report request.
-         * @var ReportRequest
-         */
         public $ReportRequest;
     }
 

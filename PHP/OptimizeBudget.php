@@ -36,6 +36,7 @@ ini_set("soap.wsdl_cache_ttl", "0");
 $UserName = "<UserNameGoesHere>";
 $Password = "<PasswordGoesHere>";
 $DeveloperToken = "<DeveloperTokenGoesHere>";
+$CustomerId = <CustomerIdGoesHere>;
 $AccountId = <AccountIdGoesHere>;
 
 // Optimizer WSDL

@@ -1,5 +1,5 @@
 <?php
-// Generated on 8/11/2015 7:46:21 AM
+// Generated on 11/16/2015 6:46:27 AM
 
 namespace BingAds\Optimizer
 {

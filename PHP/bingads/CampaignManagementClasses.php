@@ -1,5 +1,5 @@
 <?php
-// Generated on 8/11/2015 7:46:21 AM
+// Generated on 11/16/2015 6:46:27 AM
 
 namespace BingAds\CampaignManagement
 {
@@ -1805,7 +1805,7 @@ namespace BingAds\CampaignManagement
         public $Description;
 
         /**
-         * The following list of key and value strings are available for forward compatibility.
+         * For a list of valid key and value strings for this element, see Campaign ForwardCompatibilityMap in the section below.
          * @var KeyValuePairOfstringstring[]
          */
         public $ForwardCompatibilityMap;
@@ -1847,7 +1847,7 @@ namespace BingAds\CampaignManagement
         public $TimeZone;
 
         /**
-         * The campaign type determines whether the campaign is a Bing Shopping campaign or a Search & Content campaign.
+         * The campaign type determines whether the campaign is a Bing Shopping campaign or a Search &amp; Content campaign.
          * @var CampaignType
          */
         public $CampaignType;
@@ -3104,45 +3104,16 @@ namespace BingAds\CampaignManagement
     }
 
     /**
-     * Defines a mobile ad.
+     * Bing Ads WAP (Wireless Application Protocol) mobile ads are pay-per-click ads that are displayed on Bing and Yahoo mobile search results pages.
      * @link http://msdn.microsoft.com/en-us/library/cc512741(v=msads.90).aspx MobileAd Data Object
      */
     final class MobileAd extends Ad
     {
-        /**
-         * The name of the business being advertised.
-         * @var string
-         */
         public $BusinessName;
-
-        /**
-         * The URL of the webpage to take the user to when they click the ad.
-         * @var string
-         */
         public $DestinationUrl;
-
-        /**
-         * The URL to display in the ad.
-         * @var string
-         */
         public $DisplayUrl;
-
-        /**
-         * The phone number to dial when the user clicks the ad.
-         * @var string
-         */
         public $PhoneNumber;
-
-        /**
-         * The ad copy.
-         * @var string
-         */
         public $Text;
-
-        /**
-         * The title of the ad.
-         * @var string
-         */
         public $Title;
     }
 
@@ -6019,6 +5990,16 @@ namespace BingAds\CampaignManagement
     final class GetCampaignSizesByAccountIdResponse
     {
         public $CampaignSizes;
+    }
+
+    final class GetConfigValueRequest
+    {
+        public $ConfigKey;
+    }
+
+    final class GetConfigValueResponse
+    {
+        public $ConfigValue;
     }
 
     /**
