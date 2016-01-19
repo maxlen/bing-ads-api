@@ -1,5 +1,5 @@
 <?php
-// Generated on 8/11/2015 7:46:21 AM
+// Generated on 11/16/2015 6:46:26 AM
 
 namespace BingAds\CustomerManagement
 {
@@ -238,7 +238,7 @@ namespace BingAds\CustomerManagement
     }
 
     /**
-     * The value set defines a broad selection of languages; however, not all languages are supported.
+     * Defines possible payment methods for a Bing Ads account.
      * @link http://msdn.microsoft.com/en-us/library/ee704164(v=msads.90).aspx PaymentMethodType Value Set
      * 
      * @used-by Account
@@ -256,10 +256,20 @@ namespace BingAds\CustomerManagement
 
         /** The payments are made with an electronic funds transfer. */
         const ElectronicFundsTransfer = 'ElectronicFundsTransfer';
+
+        /** A payment service that allows customers to pay for their Bing Ads transactions online. */
         const PayPal = 'PayPal';
+
+        /** The ELV value represents the SEPA payment method. */
         const ELV = 'ELV';
+
+        /** Meant to signal when a customer is funding a prepay account by making payment via a check or a bank transfer. */
         const OfflinePaymentMethod = 'OfflinePaymentMethod';
+
+        /** Virtual Bank Account is a form of payment used widely in Taiwan. */
         const VBA = 'VBA';
+
+        /** Boleto is a form of payment used widely in Brazil. */
         const Boleto = 'Boleto';
     }
 
@@ -841,124 +851,25 @@ namespace BingAds\CustomerManagement
      */
     class Account
     {
-        /**
-         * The type of the account.
-         * @var AccountType
-         */
         public $AccountType;
-
-        /**
-         * The identifier of the customer that is billed for the charges that the account generates.
-         * @var integer
-         */
         public $BillToCustomerId;
-
-        /**
-         * The code that identifies the country/region in which the account operates.
-         * @var string
-         */
         public $CountryCode;
-
-        /**
-         * The type of currency that is used to settle the account.
-         * @var CurrencyType
-         */
         public $CurrencyType;
-
-        /**
-         * The financial status of the account.
-         * @var AccountFinancialStatus
-         */
         public $AccountFinancialStatus;
-
-        /**
-         * The system generated identifier of the account.
-         * @var integer
-         */
         public $Id;
-
-        /**
-         * The language used to render the invoice (if you use an invoice as your payment method).
-         * @var LanguageType
-         */
         public $Language;
-
-        /**
-         * The following list of key and value strings are available for forward compatibility.
-         * @var KeyValuePairOfstringstring[]
-         */
         public $ForwardCompatibilityMap;
-
-        /**
-         * The identifier of the last user to update the account's information.
-         * @var integer
-         */
         public $LastModifiedByUserId;
-
-        /**
-         * The date and time that the account was last updated.
-         * @var \DateTime
-         */
         public $LastModifiedTime;
-
-        /**
-         * The name of the account.
-         * @var string
-         */
         public $Name;
-
-        /**
-         * The system generated account number that is used to identify the account in the Bing Ads web application.
-         * @var string
-         */
         public $Number;
-
-        /**
-         * The identifier of the customer that owns the account.
-         * @var integer
-         */
         public $ParentCustomerId;
-
-        /**
-         * The identifier of the payment instrument to use to settle the account.
-         * @var integer
-         */
         public $PaymentMethodId;
-
-        /**
-         * The type of payment instrument to use to settle the account.
-         * @var PaymentMethodType
-         */
         public $PaymentMethodType;
-
-        /**
-         * The identifier of the account manager who is primarily responsible for managing this account.
-         * @var integer
-         */
         public $PrimaryUserId;
-
-        /**
-         * The status of the account.
-         * @var AccountLifeCycleStatus
-         */
         public $AccountLifeCycleStatus;
-
-        /**
-         * The time-stamp value that the system uses internally to reconcile updates when you call the UpdateAccount or DeleteAccount operation.
-         * @var base64Binary
-         */
         public $TimeStamp;
-
-        /**
-         * The default time-zone value to use for campaigns in this account.
-         * @var TimeZoneType
-         */
         public $TimeZone;
-
-        /**
-         * A flag value that indicates who paused the account.
-         * @var integer
-         */
         public $PauseReason;
     }
 
@@ -1944,10 +1855,6 @@ namespace BingAds\CustomerManagement
      */
     final class AddClientLinksRequest
     {
-        /**
-         * The list of client links to add.
-         * @var ClientLink[]
-         */
         public $ClientLinks;
     }
 
@@ -1960,16 +1867,7 @@ namespace BingAds\CustomerManagement
      */
     final class AddClientLinksResponse
     {
-        /**
-         * A list of one or more reasons why the service operation failed, and no client links were added.
-         * @var OperationError[]
-         */
         public $OperationErrors;
-
-        /**
-         * An array of OperationError lists that contain details for any client links that were not successfully added.
-         * @var OperationError[][]
-         */
         public $PartialErrors;
     }
 
@@ -1993,16 +1891,7 @@ namespace BingAds\CustomerManagement
      */
     final class DeleteAccountRequest
     {
-        /**
-         * The identifier of the account to delete.
-         * @var integer
-         */
         public $AccountId;
-
-        /**
-         * The time-stamp value that the operation uses to reconcile the update.
-         * @var base64Binary
-         */
         public $TimeStamp;
     }
 
@@ -2024,16 +1913,7 @@ namespace BingAds\CustomerManagement
      */
     final class DeleteCustomerRequest
     {
-        /**
-         * The identifier of the customer to delete.
-         * @var integer
-         */
         public $CustomerId;
-
-        /**
-         * The time-stamp value that the operation uses to reconcile the update.
-         * @var base64Binary
-         */
         public $TimeStamp;
     }
 
@@ -2055,16 +1935,7 @@ namespace BingAds\CustomerManagement
      */
     final class DeleteUserRequest
     {
-        /**
-         * The identifier of the user to delete.
-         * @var integer
-         */
         public $UserId;
-
-        /**
-         * The time-stamp value that the operation uses to reconcile the update.
-         * @var base64Binary
-         */
         public $TimeStamp;
     }
 
@@ -2087,28 +1958,9 @@ namespace BingAds\CustomerManagement
      */
     final class FindAccountsRequest
     {
-        /**
-         * The identifier of the customer whose accounts you want to get.
-         * @var integer
-         */
         public $CustomerId;
-
-        /**
-         * The criteria to use to filter the list of accounts.
-         * @var string
-         */
         public $AccountFilter;
-
-        /**
-         * A nonzero positive integer that specifies the number of accounts to return in the result.
-         * @var integer
-         */
         public $TopN;
-
-        /**
-         * A value that determines whether to return advertiser accounts or publisher accounts.
-         * @var ApplicationType
-         */
         public $ApplicationScope;
     }
 
@@ -2121,10 +1973,6 @@ namespace BingAds\CustomerManagement
      */
     final class FindAccountsResponse
     {
-        /**
-         * A list of AccountInfo objects of the accounts that match the specified filter criteria.
-         * @var AccountInfo[]
-         */
         public $AccountsInfo;
     }
 
@@ -2137,22 +1985,8 @@ namespace BingAds\CustomerManagement
      */
     final class FindAccountsOrCustomersInfoRequest
     {
-        /**
-         * The criteria to use to filter the list of accounts and customers.
-         * @var string
-         */
         public $Filter;
-
-        /**
-         * A nonzero positive integer that specifies the number of accounts to return in the result.
-         * @var integer
-         */
         public $TopN;
-
-        /**
-         * A value that determines whether to return advertiser accounts or publisher accounts.
-         * @var ApplicationType
-         */
         public $ApplicationScope;
     }
 
@@ -2165,10 +1999,6 @@ namespace BingAds\CustomerManagement
      */
     final class FindAccountsOrCustomersInfoResponse
     {
-        /**
-         * A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.
-         * @var AccountInfoWithCustomerData[]
-         */
         public $AccountInfoWithCustomerData;
     }
 
@@ -2191,10 +2021,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetAccountRequest
     {
-        /**
-         * The identifier of the account to get.
-         * @var integer
-         */
         public $AccountId;
     }
 
@@ -2207,10 +2033,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetAccountResponse
     {
-        /**
-         * An account object that contains information about the account, such as payment method, account type, and parent customer.
-         * @var Account
-         */
         public $Account;
     }
 
@@ -2222,16 +2044,7 @@ namespace BingAds\CustomerManagement
      */
     final class GetAccountsInfoRequest
     {
-        /**
-         * The identifier of the customer who owns the accounts to get.
-         * @var integer
-         */
         public $CustomerId;
-
-        /**
-         * Determines whether to return only the accounts that belong to the customer or to also return the accounts that the customer manages for other customers.
-         * @var boolean
-         */
         public $OnlyParentAccounts;
     }
 
@@ -2244,10 +2057,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetAccountsInfoResponse
     {
-        /**
-         * An array of AccountInfo objects that identifies the list of accounts that the customer owns.
-         * @var AccountInfo[]
-         */
         public $AccountsInfo;
     }
 
@@ -2268,10 +2077,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetCustomerRequest
     {
-        /**
-         * The identifier of the customer whose information you want to get.
-         * @var integer
-         */
         public $CustomerId;
     }
 
@@ -2284,10 +2089,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetCustomerResponse
     {
-        /**
-         * A Customer object that contains information about the customer.
-         * @var Customer
-         */
         public $Customer;
     }
 
@@ -2299,10 +2100,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetCustomerPilotFeaturesRequest
     {
-        /**
-         * The identifier of the customer whose list of pilot programs you want to get.
-         * @var integer
-         */
         public $CustomerId;
     }
 
@@ -2314,10 +2111,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetCustomerPilotFeaturesResponse
     {
-        /**
-         * A list of integers that identifies the pilot programs in which the customer participates.
-         * @var integer[]
-         */
         public $FeaturePilotFlags;
     }
 
@@ -2330,22 +2123,8 @@ namespace BingAds\CustomerManagement
      */
     final class GetCustomersInfoRequest
     {
-        /**
-         * A partial or full name of the customers that you want to get.
-         * @var string
-         */
         public $CustomerNameFilter;
-
-        /**
-         * A nonzero positive integer that specifies the number of customers to return in the result.
-         * @var integer
-         */
         public $TopN;
-
-        /**
-         * A value that determines whether to return results for advertising customers or publishing customers.
-         * @var ApplicationType
-         */
         public $ApplicationScope;
     }
 
@@ -2358,10 +2137,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetCustomersInfoResponse
     {
-        /**
-         * An array of CustomerInfo objects that identifies the list of customers that meet the filter criteria.
-         * @var CustomerInfo[]
-         */
         public $CustomersInfo;
     }
 
@@ -2382,10 +2157,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetUserRequest
     {
-        /**
-         * The identifier of the user to get.
-         * @var integer
-         */
         public $UserId;
     }
 
@@ -2398,28 +2169,9 @@ namespace BingAds\CustomerManagement
      */
     final class GetUserResponse
     {
-        /**
-         * A user object that contains information about the user.
-         * @var User
-         */
         public $User;
-
-        /**
-         * An array of roles that determines the permissions that the user has to manage the customer or account data.
-         * @var integer[]
-         */
         public $Roles;
-
-        /**
-         * An array of identifiers of the accounts to which the user has access permissions.
-         * @var integer[]
-         */
         public $Accounts;
-
-        /**
-         * An array of identifiers of the customers to which the user has access permissions.
-         * @var integer[]
-         */
         public $Customers;
     }
 
@@ -2432,16 +2184,7 @@ namespace BingAds\CustomerManagement
      */
     final class GetUsersInfoRequest
     {
-        /**
-         * The identifier of the customer to which the users belong.
-         * @var integer
-         */
         public $CustomerId;
-
-        /**
-         * The status value that the operation uses to filter the list of users that it returns.
-         * @var UserLifeCycleStatus
-         */
         public $StatusFilter;
     }
 
@@ -2454,10 +2197,6 @@ namespace BingAds\CustomerManagement
      */
     final class GetUsersInfoResponse
     {
-        /**
-         * A list of UserInfo objects that identifies the list of users who meet the filter criteria.
-         * @var UserInfo[]
-         */
         public $UsersInfo;
     }
 
@@ -2492,22 +2231,8 @@ namespace BingAds\CustomerManagement
      */
     final class SearchAccountsRequest
     {
-        /**
-         * Determines the request conditions.
-         * @var Predicate[]
-         */
         public $Predicates;
-
-        /**
-         * Determines the order of results by the specified property of an account.
-         * @var OrderBy[]
-         */
         public $Ordering;
-
-        /**
-         * Determines the index and size of results per page.
-         * @var Paging
-         */
         public $PageInfo;
     }
 
@@ -2520,10 +2245,6 @@ namespace BingAds\CustomerManagement
      */
     final class SearchAccountsResponse
     {
-        /**
-         * A list of accounts that meet the specified criteria.
-         * @var Account[]
-         */
         public $Accounts;
     }
 
@@ -2538,22 +2259,8 @@ namespace BingAds\CustomerManagement
      */
     final class SearchClientLinksRequest
     {
-        /**
-         * Determines the request conditions.
-         * @var Predicate[]
-         */
         public $Predicates;
-
-        /**
-         * Determines the order of results.
-         * @var OrderBy[]
-         */
         public $Ordering;
-
-        /**
-         * Determines the index and size of results per page.
-         * @var Paging
-         */
         public $PageInfo;
     }
 
@@ -2566,10 +2273,6 @@ namespace BingAds\CustomerManagement
      */
     final class SearchClientLinksResponse
     {
-        /**
-         * The list of client link invitations.
-         * @var ClientLink[]
-         */
         public $ClientLinks;
     }
 
@@ -2586,34 +2289,10 @@ namespace BingAds\CustomerManagement
      */
     final class SearchCustomersRequest
     {
-        /**
-         * A value that determines whether to return results for advertising customers or publishing customers.
-         * @var ApplicationType
-         */
         public $ApplicationScope;
-
-        /**
-         * Determines the request conditions.
-         * @var Predicate[]
-         */
         public $Predicates;
-
-        /**
-         * Determines the minimum and maximum customer creation date range.
-         * @var DateRange
-         */
         public $DateRange;
-
-        /**
-         * Determines the order of results by the specified property of a customer.
-         * @var OrderBy[]
-         */
         public $Ordering;
-
-        /**
-         * Determines the index and size of results per page.
-         * @var Paging
-         */
         public $PageInfo;
     }
 
@@ -2626,10 +2305,6 @@ namespace BingAds\CustomerManagement
      */
     final class SearchCustomersResponse
     {
-        /**
-         * A list of customers that meet the specified criteria.
-         * @var Customer[]
-         */
         public $Customers;
     }
 
@@ -2642,10 +2317,6 @@ namespace BingAds\CustomerManagement
      */
     final class SearchUserInvitationsRequest
     {
-        /**
-         * Determines the request conditions.
-         * @var Predicate[]
-         */
         public $Predicates;
     }
 
@@ -2658,10 +2329,6 @@ namespace BingAds\CustomerManagement
      */
     final class SearchUserInvitationsResponse
     {
-        /**
-         * A list of user invitations that meet the specified criteria.
-         * @var UserInvitation[]
-         */
         public $UserInvitations;
     }
 
@@ -2674,10 +2341,6 @@ namespace BingAds\CustomerManagement
      */
     final class SendUserInvitationRequest
     {
-        /**
-         * The user invitation to send.
-         * @var UserInvitation
-         */
         public $UserInvitation;
     }
 
@@ -2689,10 +2352,6 @@ namespace BingAds\CustomerManagement
      */
     final class SendUserInvitationResponse
     {
-        /**
-         * A system-generated identifier for the user invitation that was sent.
-         * @var integer
-         */
         public $UserInvitationId;
     }
 
@@ -2707,28 +2366,9 @@ namespace BingAds\CustomerManagement
      */
     final class SignupCustomerRequest
     {
-        /**
-         * A Customer object that specifies the details of the customer that you are adding.
-         * @var Customer
-         */
         public $Customer;
-
-        /**
-         * An Account object that specifies the details of the customer's primary account.
-         * @var Account
-         */
         public $Account;
-
-        /**
-         * The customer identifier of the reseller that will manage this customer.
-         * @var integer
-         */
         public $ParentCustomerId;
-
-        /**
-         * Determines the type of customer application.
-         * @var ApplicationType
-         */
         public $ApplicationScope;
     }
 
@@ -2756,10 +2396,6 @@ namespace BingAds\CustomerManagement
      */
     final class UpdateAccountRequest
     {
-        /**
-         * An AdvertiserAccount object that contains the updated account information.
-         * @var Account
-         */
         public $Account;
     }
 
@@ -2783,10 +2419,6 @@ namespace BingAds\CustomerManagement
      */
     final class UpdateClientLinksRequest
     {
-        /**
-         * The list of client links to update.
-         * @var ClientLink[]
-         */
         public $ClientLinks;
     }
 
@@ -2799,16 +2431,7 @@ namespace BingAds\CustomerManagement
      */
     final class UpdateClientLinksResponse
     {
-        /**
-         * A list of one or more reasons why the service operation failed, and no client links were added.
-         * @var OperationError[]
-         */
         public $OperationErrors;
-
-        /**
-         * An array of OperationError lists that contain details for any client links that were not successfully added.
-         * @var OperationError[][]
-         */
         public $PartialErrors;
     }
 
@@ -2821,10 +2444,6 @@ namespace BingAds\CustomerManagement
      */
     final class UpdateCustomerRequest
     {
-        /**
-         * A customer object that contains the updated customer information.
-         * @var Customer
-         */
         public $Customer;
     }
 
@@ -2858,10 +2477,6 @@ namespace BingAds\CustomerManagement
      */
     final class UpdateUserRequest
     {
-        /**
-         * The user object that contains the updated user information.
-         * @var User
-         */
         public $User;
     }
 
@@ -2884,30 +2499,11 @@ namespace BingAds\CustomerManagement
      */
     final class UpdateUserRolesRequest
     {
-        /**
-         * The identifier of the customer to which the user belongs.
-         * @var integer
-         */
         public $CustomerId;
-
-        /**
-         * The identifier of the user whose role you want to update.
-         * @var integer
-         */
         public $UserId;
-
-        /**
-         * The identifier of the role to which the values specified in the NewAccounts or NewCustomers element applies to, if set.
-         * @var integer
-         */
         public $NewRoleId;
         public $NewAccountIds;
         public $NewCustomerIds;
-
-        /**
-         * The identifier of the role to which the values specified in the DeleteAccounts or DeleteCustomers element applies, if set.
-         * @var integer
-         */
         public $DeleteRoleId;
         public $DeleteAccountIds;
         public $DeleteCustomerIds;

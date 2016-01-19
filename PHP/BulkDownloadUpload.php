@@ -21,7 +21,7 @@ include 'bingads\BulkClasses.php';
 include 'bingads\ClientProxy.php';
 
 // Specify the BingAds\Bulk objects that will be used.
-use BingAds\Bulk\DownloadCampaignsByCampaignIdsRequest;
+use BingAds\Bulk\DownloadCampaignsByAccountIdsRequest;
 use BingAds\Bulk\BulkDownloadEntity;
 use BingAds\Bulk\DataScope;
 use BingAds\Bulk\CampaignScope;
@@ -97,15 +97,8 @@ try
     
     // The campaigns must all belong to the same account.
     
-    $campaigns = array();
-    
-    foreach ($CampaignIds as $id)
-    {
-    	$scope = new CampaignScope();
-    	$scope->CampaignId = $id;
-    	$scope->ParentAccountId = $AccountId;
-    	$campaigns[] = $scope;
-    }
+    $accounts = array();
+    $accounts[] = $AccountId;
     
     $dataScope = DataScope::EntityData;
     
@@ -113,7 +106,9 @@ try
     	BulkDownloadEntity::Ads,
     	BulkDownloadEntity::AdGroups,
     	BulkDownloadEntity::Campaigns,
-    	BulkDownloadEntity::Keywords
+    	BulkDownloadEntity::Keywords,
+        BulkDownloadEntity::AdGroupProductPartitions,
+        BulkDownloadEntity::CampaignProductScopes
     	);
 
     $formatVersion = "3.0";
@@ -140,7 +135,7 @@ try
     
     $downloadRequestId = GetDownloadRequestId(
     		$proxy,
-    		$campaigns,
+    		$accounts,
     		$dataScope,
     		$FileFormat,
     		$entities,
@@ -148,7 +143,7 @@ try
     		$lastSyncTimeInUTC,
     		null
     		);
-    
+
     $waitTime = 5 * 1; 
         
     if ($downloadRequestId != null)
@@ -232,7 +227,7 @@ try
                $uploadUrl, 
                $BulkFilePath
                );
-    
+   
     $uploadSuccess = false;
     
     // This sample polls every 30 seconds up to 5 minutes.
@@ -247,7 +242,7 @@ try
     	// GetUploadRequestStatus helper method calls the corresponding Bing Ads service operation
     	// to get the upload status.
     	$uploadRequestStatus = GetUploadRequestStatus($proxy, $uploadRequestId);
-        
+        print $uploadRequestStatus . "\n";
     	if (($uploadRequestStatus != null) && (($uploadRequestStatus == "Completed")
     		|| ($uploadRequestStatus == "CompletedWithErrors")))
     	{
@@ -255,7 +250,7 @@ try
 	    	break;
     	}
     }
-    
+
     if ($uploadSuccess)
     {
     	// GetUploadResultFileUrl helper method calls the corresponding Bing Ads service operation
@@ -379,15 +374,15 @@ catch (Exception $e)
     }
 }
 
-// GetDownloadRequestId helper method calls the DownloadCampaignsByCampaignIds service operation 
+// GetDownloadRequestId helper method calls the DownloadCampaignsByAccountIds service operation 
 // to request the download identifier.
         
-function GetDownloadRequestId($proxy, $campaigns, $dataScope, $downloadFileType, 
+function GetDownloadRequestId($proxy, $accounts, $dataScope, $downloadFileType, 
 		$entities, $formatVersion, $lastSyncTimeInUTC, $performanceStatsDateRange)
 {
     // Set the request information.
-    $request = new DownloadCampaignsByCampaignIdsRequest();
-    $request->Campaigns = $campaigns;
+    $request = new DownloadCampaignsByAccountIdsRequest();
+    $request->AccountIds = $accounts;
     $request->DataScope = $dataScope;
     $request->DownloadFileType = $downloadFileType;
     $request->Entities = $entities;
@@ -395,7 +390,7 @@ function GetDownloadRequestId($proxy, $campaigns, $dataScope, $downloadFileType,
     $request->LastSyncTimeInUTC = $lastSyncTimeInUTC;
     $request->PerformanceStatsDateRange = $performanceStatsDateRange;
         
-    return $proxy->GetService()->DownloadCampaignsByCampaignIds($request)->DownloadRequestId;
+    return $proxy->GetService()->DownloadCampaignsByAccountIds($request)->DownloadRequestId;
 }
 
 
@@ -477,7 +472,10 @@ function UploadFile($UserName, $Password, $DeveloperToken, $CustomerId, $Custome
 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, array("file" => "@$filePath"));
+
+    // PHP 5.5+
+    $file = curl_file_create($filePath, "application/zip", "payload.zip");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, array("payload" => $file));
 
     $result = curl_exec($ch);
                 
@@ -487,7 +485,7 @@ function UploadFile($UserName, $Password, $DeveloperToken, $CustomerId, $Custome
     }
     else
     {
-        print $result . "\n";
+        print "Upload Result: " . $result . "\n";
     }
              
     curl_close($ch);

@@ -1,5 +1,5 @@
 <?php
-// Generated on 8/11/2015 7:46:21 AM
+// Generated on 11/16/2015 6:46:27 AM
 
 namespace BingAds\AdIntelligence
 {
@@ -253,19 +253,9 @@ namespace BingAds\AdIntelligence
         const Aggregate = 'Aggregate';
     }
 
-    /**
-     * Defines the possible values that indicate whether all or a subset of an ad group's existing keywords are used to determine the bid landscape.
-     * @link http://msdn.microsoft.com/en-us/library/dn743748(v=msads.90).aspx AdGroupBidLandscapeType Value Set
-     * 
-     * @used-by AdGroupBidLandscape
-     * @used-by AdGroupBidLandscapeInput
-     */
     final class AdGroupBidLandscapeType
     {
-        /** All of an ad group's existing keywords are used to determine the bid landscape. */
         const Uniform = 'Uniform';
-
-        /** Only existing keywords that use the ad group's default bid are used to determine the bid landscape. */
         const DefaultBidOnly = 'DefaultBidOnly';
     }
 
@@ -379,67 +369,18 @@ namespace BingAds\AdIntelligence
         public $Errors;
     }
 
-    /**
-     * Defines an object that contains a list of estimated clicks, cost, and impressions from 1 to 7 days for the ad group identifier given the suggested bid.
-     * @link http://msdn.microsoft.com/en-us/library/dn743746(v=msads.90).aspx AdGroupBidLandscape Data Object
-     * 
-     * @uses AdGroupBidLandscapeType
-     * @uses DayMonthAndYear
-     * @uses BidLandscapePoint
-     * @used-by GetBidLandscapeByAdGroupIdsResponse
-     */
     final class AdGroupBidLandscape
     {
-        /**
-         * The ad group identifier.
-         * @var integer
-         */
         public $AdGroupId;
-
-        /**
-         * Indicates whether all or a subset of an ad group's existing keywords were used to determine the bid landscape.
-         * @var AdGroupBidLandscapeType
-         */
         public $AdGroupBidLandscapeType;
-
-        /**
-         * The first date used to calculate the bid landscape.
-         * @var DayMonthAndYear
-         */
         public $StartDate;
-
-        /**
-         * The most recent date used to calculate the bid landscape.
-         * @var DayMonthAndYear
-         */
         public $EndDate;
-
-        /**
-         * The list of the total estimated clicks, cost, and impressions from StartDate to EndDate given the suggested bid.
-         * @var BidLandscapePoint[]
-         */
         public $BidLandscapePoints;
     }
 
-    /**
-     * Defines an object that contains the requested bid landscape type for the corresponding ad group identifier.
-     * @link http://msdn.microsoft.com/en-us/library/dn743747(v=msads.90).aspx AdGroupBidLandscapeInput Data Object
-     * 
-     * @uses AdGroupBidLandscapeType
-     * @used-by GetBidLandscapeByAdGroupIdsRequest
-     */
     final class AdGroupBidLandscapeInput
     {
-        /**
-         * Determines whether all or a subset of an ad group's existing keywords should be used to determine the bid landscape.
-         * @var AdGroupBidLandscapeType
-         */
         public $AdGroupBidLandscapeType;
-
-        /**
-         * The ad group identifier.
-         * @var integer
-         */
         public $AdGroupId;
     }
 
@@ -1543,35 +1484,13 @@ namespace BingAds\AdIntelligence
         public $Result;
     }
 
-    /**
-     * Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
-     * @link http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx GetBidLandscapeByAdGroupIds Request Object
-     * 
-     * @uses AdGroupBidLandscapeInput
-     * @used-by BingAdsAdIntelligenceService::GetBidLandscapeByAdGroupIds
-     */
     final class GetBidLandscapeByAdGroupIdsRequest
     {
-        /**
-         * An array of ad group identifiers with corresponding bid landscape type input.
-         * @var AdGroupBidLandscapeInput[]
-         */
         public $AdGroupBidLandscapeInputs;
     }
 
-    /**
-     * Given a list of existing ad groups, this operation returns for each a list of suggested bids and estimated performance statistics.
-     * @link http://msdn.microsoft.com/en-us/library/dn743755(v=msads.90).aspx GetBidLandscapeByAdGroupIds Response Object
-     * 
-     * @uses AdGroupBidLandscape
-     * @used-by BingAdsAdIntelligenceService::GetBidLandscapeByAdGroupIds
-     */
     final class GetBidLandscapeByAdGroupIdsResponse
     {
-        /**
-         * An array of AdGroupBidLandscape objects.
-         * @var AdGroupBidLandscape[]
-         */
         public $BidLandscape;
     }
 
